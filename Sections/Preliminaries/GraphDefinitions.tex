@@ -1,0 +1,159 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	03.05.2017
+%	Graph Theory Definitions
+%
+% ----------------------------------------------
+
+
+This section provides definitions of graph theory objects required for completeness of further sections.
+In this section, when is not mention different, $V$ is default notation for set of graph's vertices and 
+$E$ is default notation for set of graph's edges. 
+
+
+% ----------------------
+% Undirected edge
+% ----------------------
+\begin{defi}{\textbf{(Undirected edge)}} \\
+	For vertices $u, v \in V$ we say that there is an undirected edge between vertices $u$ 
+	and $v$ if $(u, v) \in E$ and $(v, u) \in E$. Undirected edge between $u$ and $v$ is marked as $u-v$.
+\end{defi}
+
+
+% ----------------------
+% Directed edge
+% ----------------------
+\begin{defi} {\textbf{(Directed edge)}} \\
+	For vertices $u, v \in V$ we say that there is an directed edge from vertice $u$ to vertice $v$ if
+	$(u, v) \in E$ and $(v, u) \in E$. Directed edge from $u$ to $v$ is marked as $u \rightarrow v$.
+\end{defi}
+
+
+% ----------------------
+% Sekelton
+% ----------------------
+\begin{defi} {\textbf{(Skeleton)}} \\
+	Skeleton of graph $G = (V, E)$ is a graph $G' = (V', E')$ where $V = V'$ and the set of edges $E'$
+	is obtained by replacing directed edges of set $E$ by undirected edges.
+\end{defi}
+
+
+% ----------------------
+% Route
+% ----------------------
+\begin{defi} {\textbf{(Route)}} \\
+	A \textit{route} in graph $G = (V, E)$ is a sequence of vertices $(v_0, \dots, v_k)$, $k \ge 0$, such that 
+	$$ (v_{i-1}, v_i) \in E \ \  \mbox{or} \ \ (v_i, v_{i-1}) \in E$$
+	for $i = 1, \dots, k$. The vertices $v_0$ and $v_k$ are called \textit{terminals}. A route is called descending
+	if $(v_{i-1}, v_i) \in E$ for $i = 1, \dots, k$. Descending route from $u$ to $v$ is marked as $u \mapsto v$. 
+\end{defi}
+
+
+% ----------------------
+% Path
+% ----------------------
+\begin{defi} {\textbf{(Path)}} \\
+	A route $r = (v_0, v_1, \dots, v_k)$ in graph $G = (V, E)$ is called a path if all vertices in $r$ are distinct.
+\end{defi}
+
+
+% ----------------------
+% Cycles
+% ----------------------
+\begin{defi} {\textbf{(Cycle)}} \\
+	A route $r = (v_0, v_1, \dots, v_k)$ in graph $G = (V, E)$ is called a pseudocycle if $v_0 = v_k$ and 
+	a cycles if further route is a path and $k \ge 3$.
+\end{defi}
+
+A graph with only directed edges is called an \textit{undirected graph}. A graph without directed cycles 
+and with only directed edges is called a \textit{directed acyclic graph} (DAG).
+
+
+% ----------------------
+% Chain graph
+% ----------------------
+\begin{defi} {\textbf{(Chain graph)}} \\
+	A graph $G = (V, E)$ is called a chain graph if it does not have directed (pseudo) cycles.
+\end{defi}
+
+
+
+% ----------------------
+% Section
+% ----------------------
+\begin{defi} {\textbf{(Section)}} \\
+	A subroute $\sigma = (v_i, \dots, v_j)$ of route $\rho = (v_0, \dots, v_k)$ in graph $G$ is called section if $			\sigma$ is the maximal undirected subroute of route $\rho$. That means $v_i - \dots - v_j$ for $0 \le i \le j 			\le k$. Vertices $v_i$ and $v_j$ are called terminals of section $\sigma$. Further vertex $v_i$ is called a 			head-terminal if $i>0$ and $v_{i-1} \rightarrow v_i$ in graph $G$. Analogically vertex $v_j$ is called 
+	head-terminal if $j<k$ and $v_j \leftarrow v_{j+1}$ in graph $G$.
+\end{defi}
+
+
+A section with two head-terminals is called \textit{head-to-head} section. Otherwise the section is called 
+\textit{non head-to-head}. For a given set of vertices $S \subset V$ in graph $G$ and section $\sigma = (v_i, \dots, v_j)$ we say that section is hit by $S$ if $\left\lbrace v_i , \dots, v_j \right\rbrace \cap S \neq \emptyset$. Otherwise we say that section $\sigma$ is outside set $S$.
+
+
+
+% ----------------------
+% Intervention
+% ----------------------
+\begin{defi} {\textbf{(Intervention)}} \\
+	A route $\rho$ in graph $G = (V, E)$ is blocked by a subset $S \subset V$ of vertices if and only if there 				exists a section $\sigma$ of route $\rho$ such that one of the following conditions is satisfied.
+	
+	\begin{enumerate}
+		\item Section $\sigma$ is head-to-head with respect to $\rho$ and $\sigma$ is outside of $S$.
+		\item Section $\sigma$ is non head-to-head with respect to $\rho$ and $\sigma$ is hit by $S$.
+	\end{enumerate}
+	
+\end{defi}
+
+
+
+\begin{figure}[h]
+	\centering
+	\vspace{-10pt}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(-2.5,2.5) rectangle (5.,5.5);
+		\draw [->] (-2.,5.) -- (2.,5.);
+		\draw [->] (2.,5.) -- (4.5,4.);
+		\draw [->] (-2.,5.) -- (2.,3.);
+		\draw [->] (2.,3.) -- (-2.,3.);
+		\draw [->] (2.,3.) -- (4.5,4.);
+		\draw [->] (-2.,3.) -- (-2.,5.);
+		\begin{scriptsize}
+			\draw [fill=uququq] (-2.,5.) circle (2.5pt);
+			\draw[color=uququq] (-1.86,5.37) node {$A$};
+			\draw [fill=uququq] (2.,5.) circle (2.5pt);
+			\draw[color=uququq] (2.14,5.37) node {$B$};
+			\draw [fill=uququq] (-2.,3.) circle (2.5pt);
+			\draw[color=uququq] (-1.86,3.37) node {$C$};
+			\draw [fill=uququq] (2.,3.) circle (2.5pt);
+			\draw[color=uququq] (2.14,3.37) node {$D$};
+			\draw [fill=uququq] (4.5,4.) circle (2.5pt);
+			\draw[color=uququq] (4.64,4.37) node {$E$};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\vspace{-10pt}
+	\caption{Example Graph}\label{ExampleGraph} 
+\end{figure}
+
+
+In graph \ref{ExampleGraph} example of descending route is $(A, B, E)$ and example of nondescending route is $(A, D, E, B)$. 
+Moreover graph \ref{ExampleGraph} contains a cycle $(A, D, C, A)$.
+
+
+
+
+% ----------------------
+% c-separation
+% ----------------------
+\textbf{TODO:} Make a comment about importance of the following definition.
+
+\begin{defi} {\textbf{(C-separation)}} \\
+	Let $G = (V, E)$ be a chain graph. Let $A, B, S$ be three disjoint subsets of the vertex set $V$, such that
+	$A$ and $B$ are nonempty. We say that $A$ and $B$ are c-separated by $S$ on $G$ if every route within one of 
+	its terminals in $A$ and the other in $B$ is blocked by $S$. 
+	We call $S$ a c-separator for $A$ and $B$ and mark as
+	$ \left\langle A, B \right\rangle_{G}^{sep}$.
+	
+\end{defi}
+

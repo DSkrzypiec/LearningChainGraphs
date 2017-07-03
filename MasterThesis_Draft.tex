@@ -1,0 +1,126 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	20.04.2017
+%	Draft of Master Thesis - Mathematics
+%
+% ----------------------------------------------
+
+\documentclass{pracamgr}
+
+
+\usepackage[UTF8]{inputenc}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% ----------------------
+% For Geogebra
+% ----------------------
+
+\usepackage{pgf,tikz}
+\usepackage{color}
+\usetikzlibrary{arrows}
+\usepackage{xcolor}
+%\usepackage[latin2]{inputenc}
+%\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{graphicx,wrapfig,lipsum}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+
+
+% Dane magistranta:
+
+\author{Damian Skrzypiec}
+
+\nralbumu{320335}
+
+\title{Structure Learning Algorithms for Chain Graphs}
+
+\tytulang{}
+
+%kierunek: Matematyka, Informatyka, ...
+\kierunek{Mathematics}
+
+
+% Praca wykonana pod kierunkiem:
+% (podać tytuł/stopień imię i nazwisko opiekuna
+% Instytut
+% ew. Wydział ew. Uczelnia (jeżeli nie MIM UW))
+\opiekun{John Noble, PhD.\\
+  Institute of Applied Mathematics and Mechanics\\
+  }
+
+% miesiąc i~rok:
+\date{April 2017}
+
+%Podać dziedzinę wg klasyfikacji Socrates-Erasmus:
+\dziedzina{ 
+11.2 Statistics\\ 
+}
+
+%Klasyfikacja tematyczna wedlug AMS (matematyka) lub ACM (informatyka)
+\klasyfikacja{62 Statistics \\
+		62C10 Bayesian Problems \\
+		}
+
+% Słowa kluczowe:
+\keywords{graphical model, chain graph, structure learning}
+
+% Tu jest dobre miejsce na Twoje własne makra i~środowiska:
+\newtheorem{defi}{Definition}[section]
+
+% koniec definicji
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  In this place will be abstract of this project.
+\end{abstract}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+\chapter{Introduction}
+
+\input{Sections/Introduction}
+
+
+\chapter{Preliminaries}\label{r:prelim}
+
+	\section{Graph Theory Terminology}\label{r:defGraph}
+		\input{Sections/Preliminaries/GraphDefinitions}
+		
+	\section{Graphical Model Terminology}\label{r:defGraphModel}
+		\input{Sections/Preliminaries/GraphicalModelDefinitions}
+
+
+\chapter{Structural Learning of Chain Graphs}
+
+	\section{Algorithm}
+
+
+\chapter{Undirected Graphical Model Selection}
+	
+	\section{Algorithm}
+
+
+\begin{thebibliography}{99}
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\bibitem{UGM} R. D. Nowak and D. Vats, \textit{A Junction Tree Framework for Undirected Graphical Model Selection}, Journal of Machine Learning Research 15 (2014) 147-191
+	
+	\bibitem{CG} Z. Ma, X. Xie and Z. Geng, \textit{Structural Learning Of Chain Graphs via Decomposition}, Journal of Machine Learning Research 9 (2008) 2847-2880
+	
+\end{thebibliography}
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: latin-2
+%%% End:
