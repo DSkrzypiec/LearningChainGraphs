@@ -1,5 +1,18 @@
 Graphical model therminologies
 
-\begin{defi}{Markov Blanket}
-	Markov Blanket is ...
+
+
+% ----------------------
+% c-separation
+% ----------------------
+\textbf{TODO:} Make a comment about importance of the following definition.
+
+\begin{defi} {\textbf{(C-separation)}} \\
+	Let $G = (V, E)$ be a chain graph. Let $A, B, S$ be three disjoint subsets of the vertex set $V$, such that
+	$A$ and $B$ are nonempty. We say that $A$ and $B$ are c-separated by $S$ on $G$ if every route within one of 
+	its terminals in $A$ and the other in $B$ is blocked by $S$. 
+	We call $S$ a c-separator for $A$ and $B$ and mark as
+	$ \left\langle A, B \right\rangle_{G}^{sep}$.
+	
 \end{defi}
+

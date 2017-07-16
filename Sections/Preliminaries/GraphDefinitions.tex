@@ -84,7 +84,7 @@ and with only directed edges is called a \textit{directed acyclic graph} (DAG).
 % ----------------------
 \begin{defi} {\textbf{(Section)}} \\
 	A subroute $\sigma = (v_i, \dots, v_j)$ of route $\rho = (v_0, \dots, v_k)$ in graph $G$ is called section if $			\sigma$ is the maximal undirected subroute of route $\rho$. That means $v_i - \dots - v_j$ for $0 \le i \le j 			\le k$. Vertices $v_i$ and $v_j$ are called terminals of section $\sigma$. Further vertex $v_i$ is called a 			head-terminal if $i>0$ and $v_{i-1} \rightarrow v_i$ in graph $G$. Analogically vertex $v_j$ is called 
-	head-terminal if $j<k$ and $v_j \leftarrow v_{j+1}$ in graph $G$.
+	a head-terminal if $j<k$ and $v_j \leftarrow v_{j+1}$ in graph $G$.
 \end{defi}
 
 
@@ -143,17 +143,4 @@ Moreover graph \ref{ExampleGraph} contains a cycle $(A, D, C, A)$.
 
 
 
-% ----------------------
-% c-separation
-% ----------------------
-\textbf{TODO:} Make a comment about importance of the following definition.
-
-\begin{defi} {\textbf{(C-separation)}} \\
-	Let $G = (V, E)$ be a chain graph. Let $A, B, S$ be three disjoint subsets of the vertex set $V$, such that
-	$A$ and $B$ are nonempty. We say that $A$ and $B$ are c-separated by $S$ on $G$ if every route within one of 
-	its terminals in $A$ and the other in $B$ is blocked by $S$. 
-	We call $S$ a c-separator for $A$ and $B$ and mark as
-	$ \left\langle A, B \right\rangle_{G}^{sep}$.
-	
-\end{defi}
 
