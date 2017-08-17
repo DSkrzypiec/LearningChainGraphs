@@ -27,7 +27,25 @@
 %\usepackage[utf8]{inputenc}
 \usepackage{latexsym}
 \usepackage{graphicx,wrapfig,lipsum}
-\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+
+% Symbol for conditional independence
+\newcommand*{\bigCI}{%
+  \mathrel{\text{%
+    {\rotatebox[origin=c]{90}{\resizebox{2.25ex}{1.65ex}{$\vDash$}}}%
+  }}%
+}
+
+% Definition of symbol C-Separation
+\newcommand{\cSep}[4]{\ensuremath{\left\langle #1 , #2 \mid #3 \right\rangle_{\mathcal{#4}}^{sep}}}
+
+
+
+% Propositions 
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{ex}{Example}[section]
+
 
 
 % Dane magistranta:
@@ -91,7 +109,7 @@
 
 \chapter{Preliminaries}\label{r:prelim}
 
-	\section{Graph Theory Terminology}\label{r:defGraph}s
+	\section{Graph Theory Terminology}\label{r:defGraph}
 		\input{Sections/Preliminaries/GraphDefinitions}
 		
 	\section{Graphical Model Terminology}\label{r:defGraphModel}
@@ -110,9 +128,13 @@
 
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{chapter}{Bibliography}
+	\bibitem{CGMP} M. Frydenberg, \textit{The Chain Graph Markov Property}, Scandinavian Journal of Statistics 17 (1990) 333-353	
+	
 	\bibitem{UGM} R. D. Nowak and D. Vats, \textit{A Junction Tree Framework for Undirected Graphical Model Selection}, Journal of Machine Learning Research 15 (2014) 147-191
 	
 	\bibitem{CG} Z. Ma, X. Xie and Z. Geng, \textit{Structural Learning Of Chain Graphs via Decomposition}, Journal of Machine Learning Research 9 (2008) 2847-2880
+
+	\bibitem{OCG} M. Studeny and R.R. Bouckaert, \textit{On chain graph models for description of conditional independence structures}, Annals Of Statistics 26 (1998) 1434-1495
 	
 \end{thebibliography}
 

@@ -1,0 +1,46 @@
+\documentclass[10pt]{article}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2857142857142857cm,y=0.25cm]
+\clip(2.,2.) rectangle (37.,18.);
+\draw [->,line width=1.2pt] (5.,5.) -- (5.,15.);
+\draw [->,line width=1.2pt] (15.,5.) -- (15.,15.);
+\draw [->,line width=1.2pt] (20.,5.) -- (15.,5.);
+\draw [->,line width=1.2pt] (20.,5.) -- (20.,15.);
+\draw [->,line width=1.2pt] (25.,5.) -- (25.,15.);
+\draw [->,line width=1.2pt] (25.,5.) -- (35.,5.);
+\draw [->,line width=1.2pt] (35.,5.) -- (35.,15.);
+\draw [->,line width=1.2pt] (35.,15.) -- (25.,5.);
+\draw [line width=1.2pt] (5.,15.)-- (10.,15.);
+\draw [line width=1.2pt] (10.,15.)-- (15.,15.);
+\draw [line width=1.2pt] (20.,15.)-- (25.,15.);
+\begin{scriptsize}
+\draw [fill=qqqqff] (5.,5.) circle (2.0pt);
+\draw[color=qqqqff] (5.410110534908851,6.029995001015912) node {$A$};
+\draw [fill=qqqqff] (5.,15.) circle (2.0pt);
+\draw[color=qqqqff] (5.410110534908851,16.01778621683871) node {$B$};
+\draw [fill=qqqqff] (10.,15.) circle (2.0pt);
+\draw[color=qqqqff] (10.434643539187805,16.01778621683871) node {$C$};
+\draw [fill=qqqqff] (15.,15.) circle (2.0pt);
+\draw[color=qqqqff] (15.459176543466759,16.01778621683871) node {$D$};
+\draw [fill=qqqqff] (15.,5.) circle (2.0pt);
+\draw[color=qqqqff] (15.459176543466759,6.029995001015912) node {$E$};
+\draw [fill=qqqqff] (20.,5.) circle (2.0pt);
+\draw[color=qqqqff] (20.422434755010602,6.029995001015912) node {$F$};
+\draw [fill=qqqqff] (20.,15.) circle (2.0pt);
+\draw[color=qqqqff] (20.422434755010602,16.01778621683871) node {$G$};
+\draw [fill=qqqqff] (25.,15.) circle (2.0pt);
+\draw[color=qqqqff] (25.446967759289556,16.01778621683871) node {$H$};
+\draw [fill=qqqqff] (25.,5.) circle (2.0pt);
+\draw[color=qqqqff] (25.446967759289556,6.029995001015912) node {$I$};
+\draw [fill=qqqqff] (35.,5.) circle (2.0pt);
+\draw[color=qqqqff] (35.43475897511236,6.029995001015912) node {$J$};
+\draw [fill=qqqqff] (35.,15.) circle (2.0pt);
+\draw[color=qqqqff] (35.43475897511236,16.01778621683871) node {$K$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{document}

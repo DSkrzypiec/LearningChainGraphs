@@ -25,8 +25,8 @@ $E$ is default notation for set of graph's edges.
 % Directed edge
 % ----------------------
 \begin{defi} {\textbf{(Directed edge)}} \\
-	For vertices $u, v \in V$ we say that there is an directed edge from vertice $u$ to vertice $v$ if
-	$(u, v) \in E$ and $(v, u) \in E$. Directed edge from $u$ to $v$ is marked as $u \rightarrow v$.
+	For vertices $u, v \in V$ we say that there is a directed edge from vertex $u$ to vertex $v$ if
+	$(u, v) \in E$ and $(v, u) \notin E$. Directed edge from $u$ to $v$ is marked as $u \rightarrow v$.
 \end{defi}
 
 
@@ -59,6 +59,31 @@ $E$ is default notation for set of graph's edges.
 
 
 % ----------------------
+% Complex
+% ----------------------
+\begin{defi} \label{complexDef} {\textbf{(Complex)}} \\
+	A path $\pi = (v_1, v_2, \dots, v_k)$ in graph $G = (V, E)$ is called complex if
+	\begin{enumerate}
+		\item $v_1 \rightarrow v_2$
+		\item $\forall_{i \in \left\{ 2, 3, \dots k-2 \right\}} \ v_i - v_{i+1}$
+		\item $v_{k-1} \leftarrow v_k$
+		\item There is not additional edges in graph $G$ for vertices in path $\pi$.
+	\end{enumerate}
+	Vertices $v_1$ and $v_k$ are called \textit{parents} of the complex, set of vertices 
+	$\left\{v_2, v_3, \dots, v_{k-1} \right\}$ is called \textit{region} of the complex and number
+	$k-2$ is the \textit{degree} of the complex.
+\end{defi}
+
+
+% ----------------------
+% Moral Graph
+% ----------------------
+\begin{defi} \label{moralGraphDef} {\textbf{(Moral Graph)}} \\
+	Let $G = (V, E)$ be a graph. A moral graph $G^{m} = (V, E^{m})$ of graph $G$ is a graph obtained by firstly join parents of complexes in graph $G$ and then replace all edges by undirected edges.
+\end{defi}
+
+
+% ----------------------
 % Cycles
 % ----------------------
 \begin{defi} {\textbf{(Cycle)}} \\
@@ -73,7 +98,7 @@ and with only directed edges is called a \textit{directed acyclic graph} (DAG).
 % ----------------------
 % Chain graph
 % ----------------------
-\begin{defi} {\textbf{(Chain graph)}} \\
+\begin{defi}\label{chainGraphDef} {\textbf{(Chain graph)}}  \\
 	A graph $G = (V, E)$ is called a chain graph if it does not have directed (pseudo) cycles.
 \end{defi}
 
@@ -107,40 +132,111 @@ A section with two head-terminals is called \textit{head-to-head} section. Other
 \end{defi}
 
 
+\begin{ex}
+	Based on the following two graphs we present examples of above defined definitions. Let graph 
+	presented in figure \ref{fig:ExampleGraph} be denoted as $G$. In graph $G$ as example of descending route is $(A, B, C, D)$ and 
+	example of non-descending route is $(D, E, F, G)$. Graph $G$ contains two complexes. Complex $(A, B, C, D, E)$
+	is of degree equal to $3$ and the other one $(F, G, H, I)$ is of degree equal to $2$. Graph $G$ contains one cycle
+	$(I, J, K, I)$. Route $(F, G, H, I)$ in graph contains section $(G, H)$ which is head-to-head section.
 
-\begin{figure}[h]
-	\centering
-	\vspace{-10pt}
-	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-		\clip(-2.5,2.5) rectangle (5.,5.5);
-		\draw [->] (-2.,5.) -- (2.,5.);
-		\draw [->] (2.,5.) -- (4.5,4.);
-		\draw [->] (-2.,5.) -- (2.,3.);
-		\draw [->] (2.,3.) -- (-2.,3.);
-		\draw [->] (2.,3.) -- (4.5,4.);
-		\draw [->] (-2.,3.) -- (-2.,5.);
-		\begin{scriptsize}
-			\draw [fill=uququq] (-2.,5.) circle (2.5pt);
-			\draw[color=uququq] (-1.86,5.37) node {$A$};
-			\draw [fill=uququq] (2.,5.) circle (2.5pt);
-			\draw[color=uququq] (2.14,5.37) node {$B$};
-			\draw [fill=uququq] (-2.,3.) circle (2.5pt);
-			\draw[color=uququq] (-1.86,3.37) node {$C$};
-			\draw [fill=uququq] (2.,3.) circle (2.5pt);
-			\draw[color=uququq] (2.14,3.37) node {$D$};
-			\draw [fill=uququq] (4.5,4.) circle (2.5pt);
-			\draw[color=uququq] (4.64,4.37) node {$E$};
-	\end{scriptsize}
-	\end{tikzpicture}
-	\vspace{-10pt}
-	\caption{Example Graph}\label{ExampleGraph} 
-\end{figure}
-
-
-In graph \ref{ExampleGraph} example of descending route is $(A, B, E)$ and example of nondescending route is $(A, D, E, B)$. 
-Moreover graph \ref{ExampleGraph} contains a cycle $(A, D, C, A)$.
-
-
+	\begin{figure}[h]
+		\centering
+		\vspace{-10pt}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2857142857142857cm,y=0.25cm]
+			\clip(2.,2.) rectangle (37.,18.);
+			\draw [->,line width=1.2pt] (5.,5.) -- (5.,15.);
+			\draw [->,line width=1.2pt] (15.,5.) -- (15.,15.);
+			\draw [->,line width=1.2pt] (20.,5.) -- (15.,5.);
+			\draw [->,line width=1.2pt] (20.,5.) -- (20.,15.);
+			\draw [->,line width=1.2pt] (25.,5.) -- (25.,15.);
+			\draw [->,line width=1.2pt] (25.,5.) -- (35.,5.);
+			\draw [->,line width=1.2pt] (35.,5.) -- (35.,15.);
+			\draw [->,line width=1.2pt] (35.,15.) -- (25.,5.);
+			\draw [line width=1.2pt] (5.,15.)-- (10.,15.);
+			\draw [line width=1.2pt] (10.,15.)-- (15.,15.);
+			\draw [line width=1.2pt] (20.,15.)-- (25.,15.);
+			\begin{scriptsize}
+				\draw [fill=qqqqff] (5.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (5.410110534908851,6.029995001015912) node {$A$};
+				\draw [fill=qqqqff] (5.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (5.410110534908851,16.01778621683871) node {$B$};
+				\draw [fill=qqqqff] (10.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (10.434643539187805,16.01778621683871) node {$C$};
+				\draw [fill=qqqqff] (15.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (15.459176543466759,16.01778621683871) node {$D$};
+				\draw [fill=qqqqff] (15.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (15.459176543466759,6.029995001015912) node {$E$};
+				\draw [fill=qqqqff] (20.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (20.422434755010602,6.029995001015912) node {$F$};
+				\draw [fill=qqqqff] (20.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (20.422434755010602,16.01778621683871) node {$G$};
+				\draw [fill=qqqqff] (25.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (25.446967759289556,16.01778621683871) node {$H$};
+				\draw [fill=qqqqff] (25.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (25.446967759289556,6.029995001015912) node {$I$};
+				\draw [fill=qqqqff] (35.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (35.43475897511236,6.029995001015912) node {$J$};
+				\draw [fill=qqqqff] (35.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (35.43475897511236,16.01778621683871) node {$K$};
+			\end{scriptsize}
+			\end{tikzpicture} 
+			
+	\caption{Example graph}			
+	\label{fig:ExampleGraph} 
+	\end{figure}
+	
+	Graph presented in figure \ref{fig:ExampleMoralGraph} is moral graph of graph $G$. 
+	Additional edges $[A, E]$ and $[F, I]$ came from connecting parents of two complexes in original graph $G$.
+	
+	\begin{figure}
+	 	\centering
+	 	\vspace{-10pt}
+	 	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2777777777777778cm,y=0.2222222222222222cm]
+			\clip(2.,2.) rectangle (38.,18.);
+			\draw [line width=1.2pt] (5.,15.)-- (10.,15.);
+			\draw [line width=1.2pt] (10.,15.)-- (15.,15.);
+			\draw [line width=1.2pt] (20.,15.)-- (25.,15.);
+			\draw [line width=1.2pt] (5.,15.)-- (5.,5.);
+			\draw [line width=1.2pt] (15.,15.)-- (15.,5.);
+			\draw [line width=1.2pt] (5.,5.)-- (15.,5.);
+			\draw [line width=1.2pt] (15.,5.)-- (20.,5.);
+			\draw [line width=1.2pt] (20.,15.)-- (20.,5.);
+			\draw [line width=1.2pt] (25.,15.)-- (25.,5.);
+			\draw [line width=1.2pt] (20.,5.)-- (25.,5.);
+			\draw [line width=1.2pt] (25.,5.)-- (35.,5.);
+			\draw [line width=1.2pt] (35.,15.)-- (35.,5.);
+			\draw [line width=1.2pt] (35.,15.)-- (25.,5.);
+			\begin{scriptsize}
+				\draw [fill=qqqqff] (5.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (5.559253380426105,6.35141192630792) node {$A$};
+				\draw [fill=qqqqff] (5.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (5.559253380426105,16.382892069350845) node {$B$};
+				\draw [fill=qqqqff] (10.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (10.534215077382354,16.382892069350845) node {$C$};
+				\draw [fill=qqqqff] (15.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (15.590733523469034,16.382892069350845) node {$D$};
+				\draw [fill=qqqqff] (15.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (15.590733523469034,6.35141192630792) node {$E$};
+				\draw [fill=qqqqff] (20.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (20.565695220425283,6.35141192630792) node {$F$};
+				\draw [fill=qqqqff] (20.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (20.565695220425283,16.382892069350845) node {$G$};
+				\draw [fill=qqqqff] (25.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (25.540656917381533,16.382892069350845) node {$H$};
+				\draw [fill=qqqqff] (25.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (25.540656917381533,6.35141192630792) node {$I$};
+				\draw [fill=qqqqff] (35.,5.) circle (2.0pt);
+				\draw[color=qqqqff] (35.57213706042446,6.35141192630792) node {$J$};
+				\draw [fill=qqqqff] (35.,15.) circle (2.0pt);
+				\draw[color=qqqqff] (35.57213706042446,16.382892069350845) node {$K$};
+			\end{scriptsize}
+			\end{tikzpicture}
+	\caption{Moral graph of graph in figure \ref{fig:ExampleGraph}}			
+	\label{fig:ExampleMoralGraph} 
+    \end{figure}		
+	
+	
+\end{ex}
 
 
 

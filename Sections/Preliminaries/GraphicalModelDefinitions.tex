@@ -1,18 +1,67 @@
-Graphical model therminologies
 
+% ----------------------
+% Conditional independence
+% ----------------------
+%
+Our main goal is to find an conditional independence structure of given joint probability distribution, hence we start from recalling definition of conditional independence.
+
+\begin{defi} \label{condInd} {\textbf{Conditional Independence}} \\
+	Let $(X_1, X_2, \dots, X_n)$ be a random vector over probability space $(\Omega, \mathcal{F}, \mathbb{P})$.
+	We say that random vectors $X_A = \left\{ X_a  \ | \ a \in A \right\}$ and 
+	$X_B = \left\{ X_b  \ | \ b \in B \right\}$
+	are conditional independent given $X_S = \left\{ X_s  \ | \ s \in S \right\}$ when 
+	for all $A_1, A_2, A_3 \in \mathcal{F}$
+	%
+	\begin{equation} 
+		\mathbb{P}(X_A \in A_1, X_B \in A_2 \mid X_S \in A_3) = \mathbb{P}(X_A \in A_1 \mid X_S \in A_3) 													\mathbb{P}(X_B \in A_2 \mid X_S \in A_3)
+	\end{equation}
+	%
+	where $A, B, S \subset {1, 2, \dots, n}$. It is denoted as $X_A \bigCI X_B \mid X_S$.
+\end{defi}
+The following definition of c-separation is an analogical version of d-separation, used in Bayesian Networks, for chain graphs. This definition was introduced by Studeny and Bouckaert in \cite{OCG}. The notation c-separation is short of "chain separation" and it is written in this form to present analogy to definition of d-separation.
 
 
 % ----------------------
 % c-separation
 % ----------------------
-\textbf{TODO:} Make a comment about importance of the following definition.
-
-\begin{defi} {\textbf{(C-separation)}} \\
+\begin{defi} \label{cSepDef} {\textbf{(c-separation)}} \\
 	Let $G = (V, E)$ be a chain graph. Let $A, B, S$ be three disjoint subsets of the vertex set $V$, such that
 	$A$ and $B$ are nonempty. We say that $A$ and $B$ are c-separated by $S$ on $G$ if every route within one of 
 	its terminals in $A$ and the other in $B$ is blocked by $S$. 
-	We call $S$ a c-separator for $A$ and $B$ and mark as
-	$ \left\langle A, B \right\rangle_{G}^{sep}$.
-	
+	We call $S$ a c-separator for $A$ and $B$ and mark as \cSep{A}{B}{S}{G}.
 \end{defi}
+
+
+% ----------------------
+% Faithfulness and Markovian
+% ----------------------
+\begin{defi} \label{faithDef} {\textbf{(faithfulness)}} \\
+	Let $G = (V, E)$ be a chain graph with random variables $X_v$ associated with vertex $v \in V$. Let note domain of 
+	random variable $X_v$ as $\mathcal{X}_v$. A probability measure $\mathbb{P}$ 
+	defined on $\prod_{v \in V} \mathcal{X}_v$ is \textit{faithful} with respect to $G$ if 
+	for any triple $(A, B, S)$ of disjoint subsets of $V$ where $A$ and $B$ are non-empty we have
+	%
+	\begin{equation}
+		\cSep{A}{B}{S}{G} \iff X_A \bigCI X_B \mid X_S
+	\end{equation}
+	%	
+	In the same setup a probability measure $\mathbb{P}$ is called \textit{Markovian} with respect to $G$ if
+	%
+	\begin{equation}
+		\cSep{A}{B}{S}{G} \Longrightarrow X_A \bigCI X_B \mid X_S
+	\end{equation}
+	%
+\end{defi}
+The following theorem from Frydenberg's paper \cite{CGMP} provides convenient tool for testing if two given 
+chain graphs are the same in respect to Markov equivalent class.
+
+% ----------------------
+% Markov equivalence of chain graphs
+% ----------------------
+\begin{prop} {\textbf{(Markov equivalence of chain graphs)} [Theorem 5.6 from \cite{CGMP}]} \\
+	Two chain graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ have the same Markov properties if and only if they same 
+	the same skeleton and the same complexes.
+\end{prop}	
+
+
 
