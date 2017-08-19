@@ -20,6 +20,7 @@
 % ----------------------
 
 \usepackage{pgf,tikz}
+\usetikzlibrary{shapes.geometric}
 \usepackage{color}
 \usetikzlibrary{arrows}
 \usepackage{xcolor}
@@ -116,14 +117,28 @@
 		\input{Sections/Preliminaries/GraphicalModelDefinitions}
 
 
-\chapter{Structural Learning of Chain Graphs}
+\chapter{LCD Algorithm}
 
-	\section{Algorithm}
+	\input{Sections/LCDAlgorithm/Overview}
 
-
-\chapter{Undirected Graphical Model Selection}
+	\section{Decomposition of chain graphs}
+		
+		\subsection{Separation Trees}
+			\input{Sections/LCDAlgorithm/SeparationTrees}
+			
+		\subsection{Construction of Separation Trees}
+			\input{Sections/LCDAlgorithm/ConstructionOfSeparationTrees}			
+			
+	\section{Theoretical Results}
 	
 	\section{Algorithm}
+	
+		\subsection{Skeleton recovery}
+	
+		\subsection{Complexes recovery}
+	
+	
+\chapter{ASP Algorithm}
 
 
 \begin{thebibliography}{99}

@@ -73,7 +73,35 @@ $E$ is default notation for set of graph's edges.
 	$\left\{v_2, v_3, \dots, v_{k-1} \right\}$ is called \textit{region} of the complex and number
 	$k-2$ is the \textit{degree} of the complex.
 \end{defi}
+Next we define extended version of moral graphs. In Bayesian Networks moral graph is 
+an undirected graph obtained from the original graph by adding undirected edges for not connected parents of the same child and then transform all edges into undirected edges. In case of chain graphs there can be situation when there are 
+not connected parents of connected children (see \ref{fig:ImmoralCG}). 
+This situation can be interpreted as immoral and to be moralized a connection between parents are required.
 
+
+\begin{ex} {\textbf{(Immorality in chain graph)}}
+	\begin{figure}[h]
+		\centering
+		\vspace{-10pt}
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+			% Nodes
+			  \node[main node] (A) {A};
+			  \node[main node] (B) [below of = A] {B};
+			  \node[main node] (C) [right of = B] {C};
+			  \node[main node] (D) [right of = C] {D};
+			  \node[main node] (E) [above of = D] {E};
+			
+			% Edges
+			  \draw[->] (A) -- (B);
+			  \draw     (B) -- (C) -- (D);
+			  \draw[->] (E) -- (D);
+			\end{tikzpicture}
+			
+		\caption{Immorality in chain graph}			
+		\label{fig:ImmoralCG} 
+	\end{figure}
+\end{ex}
 
 % ----------------------
 % Moral Graph
@@ -133,12 +161,14 @@ A section with two head-terminals is called \textit{head-to-head} section. Other
 
 
 
-\begin{ex}
-	Based on the following two graphs we present examples of above defined definitions. Let graph 
-	presented in figure \ref{fig:ExampleGraph} be denoted as $G$. In graph $G$ as example of descending route is $(A, B, C, D)$ and 
+\begin{ex} {\textbf{(Graph definitions)}} \\
+	Based on the following two graphs (figures \ref{fig:ExampleGraph} and \ref{fig:ExampleMoralGraph}) we 
+	present examples of above defined definitions. Let graph 
+	presented in figure \ref{fig:ExampleGraph} be denoted as $G$. In graph $G$ as example of descending 
+	route is $(A, B, C, D)$ and 
 	example of non-descending route is $(D, E, F, G)$. Graph $G$ contains two complexes. Complex $(A, B, C, D, E)$
 	is of degree equal to $3$ and the other one $(F, G, H, I)$ is of degree equal to $2$. Graph $G$ contains one cycle
-	$(I, J, K, I)$. Route $(F, G, H, I)$ in graph contains section $(G, H)$ which is head-to-head section.
+	$(I, J, K, I)$. The Route $(F, G, H, I)$ in graph $G$ contains section $(G, H)$ which is head-to-head section.
 
 	\begin{figure}[h]
 		\centering
@@ -174,7 +204,8 @@ A section with two head-terminals is called \textit{head-to-head} section. Other
 	\end{figure}
 	
 	Graph presented in figure \ref{fig:ExampleMoralGraph} is moral graph of graph $G$. 
-	Additional edges $[A, E]$ and $[F, I]$ came from connecting parents of two complexes in original graph $G$.
+	Additional undirected edges $A - E$ and $F - I$ are the result of connecting parents of complexes in 
+	the original graph $G$.
 	
 	\begin{figure}
 	 	\centering
@@ -196,7 +227,7 @@ A section with two head-terminals is called \textit{head-to-head} section. Other
 			
 			% Edges
 			 \draw (A) -- (B) -- (C) -- (D) -- (E) -- (A);
-			 \draw (E) -- (G) -- (F) -- (E);
+			 \draw (G) -- (F) -- (E);
 			 \draw (F) -- (G) -- (H) -- (I) -- (J) -- (K) -- (I) -- (F);
 			\end{tikzpicture}
 			

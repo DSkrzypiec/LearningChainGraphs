@@ -1,0 +1,74 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	August 2017
+%	LCD Algorithm - section about separation trees.
+%
+% ----------------------------------------------
+
+\tikzset{
+    triangle/.style={
+        draw,regular polygon,
+        regular polygon sides=3,
+        minimum size = 1pt,
+        text width = 1cm,
+        inner sep = 0pt,
+        align = center
+    }
+}
+
+\tikzstyle{block} = [draw, rectangle, minimum width = 0.75cm, minimum height = 0.75cm]
+
+
+
+\begin{defi} {\textbf{(Node Tree)}} \\ 
+	Let $G = (V, E)$ be a graph and $\mathcal{C} = \left\{ C_1, \dots, C_k\right\}$ be a collection of distinct 
+	vertices sets such that $\forall i \in \left\{1, 2, \dots, k \right\} C_i \subset V$. 
+	A node tree is a graph which set of vertices are equal to $\mathcal{C}$ and it contains undirected edges between
+	every nodes $C_i$ and $C_j$. Moreover for every edge $e$ between $C_i$ and $C_j$ we add separator 
+	$S(C_i, C_j) = C_i \cap C_j$ into set of nodes. Nodes $C_i$ are displayed by triangle and separators are
+	displayed by rectangles. Notation for node tree is $\mathcal{T}(G, \mathcal{C})$.
+\end{defi}
+
+
+\textbf{TODO: Example of Node tree}
+
+\begin{defi} {\textbf{(Splitting Node Tree by separator)}} \\ 
+	Some definition.
+\end{defi}
+
+
+\begin{defi} {\textbf{(Separation tree)}} \\
+	For given chain graph $G = (V, E)$ and node set $\mathcal{C}$ we say that node tree $\mathcal{T}(G, \mathcal{C})$
+	is a separation tree if 
+
+	\begin{enumerate}
+		\item $\cup_{C \in \mathcal{C}} C = V$ and
+		\item for any separator $S = S(C_i, C_j)$ in node tree $\mathcal{T}(G, \mathcal{C})$ with $V_1$ 
+		and $V_2$ as subtrees obtained by removing separator $S$ we have  
+		$$ \cSep{V_1 \setminus S}{V_2 \setminus S}{S}{G} $$
+	\end{enumerate}		
+	
+\end{defi}
+
+
+\begin{figure}[h]
+	\centering
+	\vspace{-10pt}
+	\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+	                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+	                    
+		% Nodes
+		 \node[block, name = A] {A};
+		 \node[block, right of = A] (B) {B};
+		 \node[triangle, right of = B] (C) {C D H O};
+		 \node[block, right of = C] (D) {E, F, G};
+		 
+		 \draw[->] (A) -- (B);
+		 \draw 		(B) -- (C);
+		 \draw[->] (C) -- (D);
+
+	\end{tikzpicture}
+		
+	\caption{Separation Tree}			
+\end{figure}
