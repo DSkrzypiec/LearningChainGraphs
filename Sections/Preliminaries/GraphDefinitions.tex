@@ -15,7 +15,7 @@ $E$ is default notation for set of graph's edges.
 % ----------------------
 % Undirected edge
 % ----------------------
-\begin{defi}{\textbf{(Undirected edge)}} \\
+\begin{defi} (Undirected edge) \\
 	For vertices $u, v \in V$ we say that there is an undirected edge between vertices $u$ 
 	and $v$ if $(u, v) \in E$ and $(v, u) \in E$. Undirected edge between $u$ and $v$ is marked as $u-v$.
 \end{defi}
@@ -24,7 +24,7 @@ $E$ is default notation for set of graph's edges.
 % ----------------------
 % Directed edge
 % ----------------------
-\begin{defi} {\textbf{(Directed edge)}} \\
+\begin{defi} (Directed edge) \\
 	For vertices $u, v \in V$ we say that there is a directed edge from vertex $u$ to vertex $v$ if
 	$(u, v) \in E$ and $(v, u) \notin E$. Directed edge from $u$ to $v$ is marked as $u \rightarrow v$.
 \end{defi}
@@ -33,7 +33,7 @@ $E$ is default notation for set of graph's edges.
 % ----------------------
 % Sekelton
 % ----------------------
-\begin{defi} {\textbf{(Skeleton)}} \\
+\begin{defi} (Skeleton) \\
 	Skeleton of graph $G = (V, E)$ is a graph $G' = (V', E')$ where $V = V'$ and the set of edges $E'$
 	is obtained by replacing directed edges of set $E$ by undirected edges.
 \end{defi}
@@ -42,7 +42,7 @@ $E$ is default notation for set of graph's edges.
 % ----------------------
 % Route
 % ----------------------
-\begin{defi} {\textbf{(Route)}} \\
+\begin{defi} (Route) \\
 	A \textit{route} in graph $G = (V, E)$ is a sequence of vertices $(v_0, \dots, v_k)$, $k \ge 0$, such that 
 	$$ (v_{i-1}, v_i) \in E \ \  \mbox{or} \ \ (v_i, v_{i-1}) \in E$$
 	for $i = 1, \dots, k$. The vertices $v_0$ and $v_k$ are called \textit{terminals}. A route is called descending
@@ -53,7 +53,7 @@ $E$ is default notation for set of graph's edges.
 % ----------------------
 % Path
 % ----------------------
-\begin{defi} {\textbf{(Path)}} \\
+\begin{defi} (Path) \\
 	A route $r = (v_0, v_1, \dots, v_k)$ in graph $G = (V, E)$ is called a path if all vertices in $r$ are distinct.
 \end{defi}
 
@@ -61,7 +61,7 @@ $E$ is default notation for set of graph's edges.
 % ----------------------
 % Complex
 % ----------------------
-\begin{defi} \label{complexDef} {\textbf{(Complex)}} \\
+\begin{defi} \label{complexDef} (Complex) \\
 	A path $\pi = (v_1, v_2, \dots, v_k)$ in graph $G = (V, E)$ is called complex if
 	\begin{enumerate}
 		\item $v_1 \rightarrow v_2$
@@ -79,7 +79,7 @@ not connected parents of connected children (see \ref{fig:ImmoralCG}).
 This situation can be interpreted as immoral and to be moralized a connection between parents are required.
 
 
-\begin{ex} {\textbf{(Immorality in chain graph)}}
+\begin{ex} (Immorality in chain graph) \\
 	\begin{figure}[h]
 		\centering
 		\vspace{-10pt}
@@ -106,7 +106,7 @@ This situation can be interpreted as immoral and to be moralized a connection be
 % ----------------------
 % Moral Graph
 % ----------------------
-\begin{defi} \label{moralGraphDef} {\textbf{(Moral Graph)}} \\
+\begin{defi} \label{moralGraphDef} (Moral Graph) \\
 	Let $G = (V, E)$ be a graph. A moral graph $G^{m} = (V, E^{m})$ of graph $G$ is a graph obtained by firstly join parents of complexes in graph $G$ and then replace all edges by undirected edges.
 \end{defi}
 
@@ -114,7 +114,7 @@ This situation can be interpreted as immoral and to be moralized a connection be
 % ----------------------
 % Cycles
 % ----------------------
-\begin{defi} {\textbf{(Cycle)}} \\
+\begin{defi} (Cycle) \\
 	A route $r = (v_0, v_1, \dots, v_k)$ in graph $G = (V, E)$ is called a pseudocycle if $v_0 = v_k$ and 
 	a cycles if further route is a path and $k \ge 3$.
 \end{defi}
@@ -126,7 +126,7 @@ and with only directed edges is called a \textit{directed acyclic graph} (DAG).
 % ----------------------
 % Chain graph
 % ----------------------
-\begin{defi}\label{chainGraphDef} {\textbf{(Chain graph)}}  \\
+\begin{defi}\label{chainGraphDef} (Chain graph)  \\
 	A graph $G = (V, E)$ is called a chain graph if it does not have directed (pseudo) cycles.
 \end{defi}
 
@@ -135,7 +135,7 @@ and with only directed edges is called a \textit{directed acyclic graph} (DAG).
 % ----------------------
 % Section
 % ----------------------
-\begin{defi} {\textbf{(Section)}} \\
+\begin{defi} (Section) \\
 	A subroute $\sigma = (v_i, \dots, v_j)$ of route $\rho = (v_0, \dots, v_k)$ in graph $G$ is called section if $			\sigma$ is the maximal undirected subroute of route $\rho$. That means $v_i - \dots - v_j$ for $0 \le i \le j 			\le k$. Vertices $v_i$ and $v_j$ are called terminals of section $\sigma$. Further vertex $v_i$ is called a 			head-terminal if $i>0$ and $v_{i-1} \rightarrow v_i$ in graph $G$. Analogically vertex $v_j$ is called 
 	a head-terminal if $j<k$ and $v_j \leftarrow v_{j+1}$ in graph $G$.
 \end{defi}
@@ -149,7 +149,7 @@ A section with two head-terminals is called \textit{head-to-head} section. Other
 % ----------------------
 % Intervention
 % ----------------------
-\begin{defi} {\textbf{(Intervention)}} \\
+\begin{defi} (Intervention) \\
 	A route $\rho$ in graph $G = (V, E)$ is blocked by a subset $S \subset V$ of vertices if and only if there 				exists a section $\sigma$ of route $\rho$ such that one of the following conditions is satisfied.
 	
 	\begin{enumerate}
@@ -161,7 +161,7 @@ A section with two head-terminals is called \textit{head-to-head} section. Other
 
 
 
-\begin{ex} {\textbf{(Graph definitions)}} \\
+\begin{ex} (Graph definitions) \\
 	Based on the following two graphs (figures \ref{fig:ExampleGraph} and \ref{fig:ExampleMoralGraph}) we 
 	present examples of above defined definitions. Let graph 
 	presented in figure \ref{fig:ExampleGraph} be denoted as $G$. In graph $G$ as example of descending 

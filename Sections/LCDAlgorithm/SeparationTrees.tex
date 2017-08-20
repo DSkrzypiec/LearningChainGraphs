@@ -6,12 +6,16 @@
 %
 % ----------------------------------------------
 
+
+% ----------------------------------
+%	Tkiz objects definitions
+% ----------------------------------
+
 \tikzset{
     triangle/.style={
         draw,regular polygon,
         regular polygon sides=3,
-        minimum size = 1pt,
-        text width = 1cm,
+        minimum size = 2.25cm,
         inner sep = 0pt,
         align = center
     }
@@ -19,56 +23,110 @@
 
 \tikzstyle{block} = [draw, rectangle, minimum width = 0.75cm, minimum height = 0.75cm]
 
+% ------------------------------------------------
 
 
-\begin{defi} {\textbf{(Node Tree)}} \\ 
-	Let $G = (V, E)$ be a graph and $\mathcal{C} = \left\{ C_1, \dots, C_k\right\}$ be a collection of distinct 
-	vertices sets such that $\forall i \in \left\{1, 2, \dots, k \right\} C_i \subset V$. 
-	A node tree is a graph which set of vertices are equal to $\mathcal{C}$ and it contains undirected edges between
-	every nodes $C_i$ and $C_j$. Moreover for every edge $e$ between $C_i$ and $C_j$ we add separator 
-	$S(C_i, C_j) = C_i \cap C_j$ into set of nodes. Nodes $C_i$ are displayed by triangle and separators are
-	displayed by rectangles. Notation for node tree is $\mathcal{T}(G, \mathcal{C})$.
+
+For graph $G = (V, E)$ we call set $\mathcal{C} = \left\{ C_1, \dots, C_k\right\}$  
+as node set of graph $G$ if $\mathcal{C}$ is a collection of distinct vertex sets such that 
+$\forall i \in \left\{1, 2, \dots, k \right\} C_i \subset V$.
+
+
+\begin{defi} (Node Tree) \\ 
+	Let $G = (V, E)$ be a graph and $\mathcal{C} = \left\{ C_1, \dots, C_k\right\}$ be a node set of graph $G$.
+	A node tree is a graph $\mc{T}(G, \mc{C}) = (\mc{C} \cup \mc{S}, E)$, where 
+	$\mc{S} = \left\{ C_i \cap C_j \ | \ i, j \in \{1, 2, \dots, k\} \right\}$ is set of so-called separators 
+	and $E = \left\{ C_i - C_j \ | \ C_i \cap C_j \neq \emptyset \ \mbox{and} \ i, j \in \{1, 2, \dots, k \} \right\}$ 
+	is set of undirected edges.
 \end{defi}
 
-
-\textbf{TODO: Example of Node tree}
-
-\begin{defi} {\textbf{(Splitting Node Tree by separator)}} \\ 
-	Some definition.
-\end{defi}
+We will be using graphical convention for representing node trees proposed by Ma, Xie and Geng in \cite{CG}. Regular nodes (from set $\mc{C}$) in node tree will be displayed as triangles and separators (from set $\mc{S}$) will be displayed as rectangles.
 
 
-\begin{defi} {\textbf{(Separation tree)}} \\
+\begin{ex} (Node tree) \\
+To illustrate node tree definition let consider graph presented in figure \ref{fig:graphForNodeTree} and node set 
+$\mc{C} = \left\{ \{A, B\}, \{B, C, D\}, \{D, E, F\}, \{D, F, G\}, \{ F, H \} \right\}$. 
+
+	\begin{figure}
+		\centering
+		\vspace{-10pt}
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+			% Nodes
+			  \node[main node] (A) {A};
+			  \node[main node] (B) [above of = A] {B};
+			  \node[main node] (C) [right of = B] {C};
+			  \node[main node] (D) [below of = C] {D};
+			  \node[main node] (E) [below of = D] {E};
+			  \node[main node] (F) [right of = D] {F};
+			  \node[main node] (G) [above of = F] {G};
+			  \node[main node] (H) [below of = F] {H};			
+			
+			% Edges
+			  \draw[->] (A) -- (B);
+			  \draw     (B) -- (C);
+			  \draw[->] (C) -- (D);
+			  \draw[->] (D) -- (F);
+			  \draw		(D) -- (E);
+			  \draw[->] (F) -- (G);
+			  \draw		(F) -- (H);
+			\end{tikzpicture}
+			
+		\caption{Example graph for node tree illustration}			
+		\label{fig:graphForNodeTree} 
+	\end{figure}
+	
+	
+	
+	\begin{figure}[h]
+		\centering
+		\vspace{-10pt}
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+		                    
+			% Nodes
+			 \node[triangle] 	(BCD) 	at (0, 0) 	{};
+			 \node				(BCD_)	at (0, 0)	{B C D};
+			 \node[block] 		(B)		at (-2, -1.5) {B};
+			 \node[block] 		(D) 	at (2, -1.5)	{D};
+			 \node[triangle] 	(AB) 	at (-2, -3.5)	{};
+			 \node 				(AB_)	at (-2, -3.5) {A B};
+			 \node[triangle]	(DEF)	at (2, -3.5)	{};
+			 \node				(DEF_)	at (2, -3.5)	{D E F};
+			 \node[block]		(DF)	at (3, -5)	{D F};
+			 \node[block]		(F)		at (1, -5)	{F};
+			 \node[triangle]	(DFG)	at (4, -6.5)		{};
+			 \node				(DFG_)	at (4, -6.5)		{D F G};	
+			 \node[triangle]	(FH)	at (0, -6.5)	{};
+			 \node 				(FH_)	at (0, -6.5)	{F H};	 
+			 
+			\draw (BCD) -- (B);
+			\draw (BCD) -- (D);
+			\draw (B) -- (AB);
+			\draw (D) -- (DEF) -- (DF) -- (DFG);
+			\draw (DEF) -- (F) -- (FH);
+		\end{tikzpicture}
+			
+		\caption{Node tree based on graph \ref{fig:graphForNodeTree} and $\mc{C}$}			
+	\end{figure}
+	
+\end{ex}
+
+
+Notice that if we remove separator $S$ from node tree $\mc{T}(G, \mc{C})$ (or equivalently remove edge that contain separator $S$) then we got two separate node trees $\mc{T}(G, \mc{C}_1(S))$ and $\mc{T}(G, \mc{C}_2(S))$ where 
+$\mc{C}_1(S) \cup \mc{C}_2(S) = \mc{C}$. To simplify notation we use 
+$$ V_i(S) = \bigcup_{C \in \mc{C}_i(S)} C$$
+as union of nodes from node tree $\mc{T}(G, \mc{C}_i(S))$ where $i \in \{1, 2\}$.
+
+\begin{defi} (Separation tree) \\
 	For given chain graph $G = (V, E)$ and node set $\mathcal{C}$ we say that node tree $\mathcal{T}(G, \mathcal{C})$
 	is a separation tree if 
 
 	\begin{enumerate}
-		\item $\cup_{C \in \mathcal{C}} C = V$ and
-		\item for any separator $S = S(C_i, C_j)$ in node tree $\mathcal{T}(G, \mathcal{C})$ with $V_1$ 
-		and $V_2$ as subtrees obtained by removing separator $S$ we have  
-		$$ \cSep{V_1 \setminus S}{V_2 \setminus S}{S}{G} $$
+		\item $\bigcup_{C \in \mathcal{C}} C = V$ and
+		\item for any separator $S$ in node tree $\mathcal{T}(G, \mathcal{C})$ we have  
+		$$ \cSep{V_1(S) \setminus S}{V_2(S) \setminus S}{S}{G} $$
 	\end{enumerate}		
 	
 \end{defi}
 
-
-\begin{figure}[h]
-	\centering
-	\vspace{-10pt}
-	\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
-	                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
-	                    
-		% Nodes
-		 \node[block, name = A] {A};
-		 \node[block, right of = A] (B) {B};
-		 \node[triangle, right of = B] (C) {C D H O};
-		 \node[block, right of = C] (D) {E, F, G};
-		 
-		 \draw[->] (A) -- (B);
-		 \draw 		(B) -- (C);
-		 \draw[->] (C) -- (D);
-
-	\end{tikzpicture}
-		
-	\caption{Separation Tree}			
-\end{figure}
