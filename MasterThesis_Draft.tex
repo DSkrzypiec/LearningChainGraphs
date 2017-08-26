@@ -9,11 +9,15 @@
 \documentclass{pracamgr}
 
 
+
 \usepackage[UTF8]{inputenc}
 \usepackage{latexsym}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
 
 % ----------------------
 % For Geogebra
@@ -38,17 +42,19 @@
   }}%
 }
 
+\theoremstyle{definition}
+
+% Propositions 
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{ex}{Example}[section]
+\newtheorem{remark}{Remark}[section]
+
 % Definition of symbol C-Separation
 \newcommand{\cSep}[4]{\ensuremath{\left\langle #1 , #2 \mid #3 \right\rangle_{\mathcal{#4}}^{sep}}}
 
 % Short for \mathcal{}
 \newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}}
-
-
-% Propositions 
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{ex}{Example}[section]
-
+\newcommand{\mb}[1]{\ensuremath{\mathbb{#1}}}
 
 
 % Dane magistranta:
@@ -103,6 +109,8 @@
 
 \tableofcontents
 \listoffigures
+\listofalgorithms
+\addtocontents{loa}{\def\string\figurename{Algorithm}}
 %\listoftables
 
 \chapter{Introduction}
@@ -119,7 +127,7 @@
 		\input{Sections/Preliminaries/GraphicalModelDefinitions}
 
 
-\chapter{LCD Algorithm}
+\chapter{LCD Algorithm} \label{chap:LCDAlg}
 
 	\input{Sections/LCDAlgorithm/Overview}
 
@@ -131,15 +139,21 @@
 		\subsection{Construction of Separation Trees}
 			\input{Sections/LCDAlgorithm/ConstructionOfSeparationTrees}			
 			
-	\section{Theoretical Results}
-	
 	\section{Algorithm}
 	
+		\subsection{Mathematical basis}
+			\input{Sections/LCDAlgorithm/MathematicalBasis}	
+	
 		\subsection{Skeleton recovery}
+			\input{Sections/LCDAlgorithm/SkeletonRecovery}	
 	
 		\subsection{Complexes recovery}
+			\input{Sections/LCDAlgorithm/ComplexRecovery}
 	
-	
+		\subsection{Algorithm complexity}
+			\input{Sections/LCDAlgorithm/Complexity}
+			
+			
 \chapter{ASP Algorithm}
 
 

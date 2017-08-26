@@ -53,13 +53,25 @@ The following definition of c-separation is an analogical version of d-separatio
 	\end{equation}
 	%
 \end{defi}
+
+\begin{remark}
+	\normalfont
+	In the further section of this paper we will use c-separation statement for some chain graph $G$ even if
+	at that time graph $G$ is unknown. In such a situation it should be interpreted as c-separation statement under 
+	probability distribution $\mb{P}$ which is faithful to graph $G$. In particular in the chapter 3
+	we will be using separation trees, which depends on chain graph $G$, to build chain graph $G$ via LCD algorithm.
+	Underlying meaning is that separation trees are built based on probability distribution that is faithful to 
+	chain graph $G$ but we do not know form of graph $G$ beforehand. 
+\end{remark}
+
+
 The following theorem from Frydenberg's paper \cite{CGMP} provides convenient tool for testing if two given 
 chain graphs are the same in respect to Markov equivalent class.
 
 % ----------------------
 % Markov equivalence of chain graphs
 % ----------------------
-\begin{prop} (Markov equivalence of chain graphs) [Theorem 5.6 from \cite{CGMP}] \\
+\begin{prop} \label{markovEquivThm} (Markov equivalence of chain graphs) [Theorem 5.6 from \cite{CGMP}] \\
 	Two chain graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ have the same Markov properties if and only if they same 
 	the same skeleton and the same complexes.
 \end{prop}	

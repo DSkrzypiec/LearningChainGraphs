@@ -1,0 +1,35 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	August 2017
+%	Complex recovery algorithm (LCD)
+%
+% ----------------------------------------------
+
+
+Some info about COMPLEX RECOVERY ALG.
+
+\begin{algorithm}
+	\caption{(LCD) Complex Recovery}\label{complexRecoveryAlg}
+	
+	\textbf{Input:} Perfect conditional independence knowledge about $\mathbb{P}$; the skeleton $G^{'}$ and the set 
+					$\mc{S}$ of c-separators obtained in algorithm \ref{skeletonRecoveryAlg}.  \\
+	\textbf{Output:} The pattern $G^{*}$ of graph $G$.
+
+	
+	\begin{algorithmic}[1]
+		\Procedure{ComplexRecovery($ \mc{T}(G, \mc{C})$)}{}
+			\State Initialize $G^{*} = G^{'}$ 
+	
+			\ForAll{$\mbox{ordered pair} \ [u, v] \ : S_{uv} \in \mc{S}$} 
+				\ForAll{$ u - w \ \mbox{in} \ G^{*}$}
+					\If{$ u \not \bigCI v \mid S_{uv} \cup \{ w \} $}
+						\State Orient $u - w$ as $u \rightarrow w$ in $G^{*}$;
+					\EndIf
+				\EndFor
+			\EndFor			
+			
+			\State \textbf{return:} Pattern of $G^{*}$.
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}

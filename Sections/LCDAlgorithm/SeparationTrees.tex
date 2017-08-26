@@ -23,6 +23,7 @@
 
 \tikzstyle{block} = [draw, rectangle, minimum width = 0.75cm, minimum height = 0.75cm]
 
+
 % ------------------------------------------------
 
 
@@ -44,7 +45,7 @@ We will be using graphical convention for representing node trees proposed by Ma
 
 
 \begin{ex} (Node tree) \\
-To illustrate node tree definition let consider graph presented in figure \ref{fig:graphForNodeTree} and node set 
+To illustrate node tree definition let's consider graph presented in figure \ref{fig:graphForNodeTree} and node set 
 $\mc{C} = \left\{ \{A, B\}, \{B, C, D\}, \{D, E, F\}, \{D, F, G\}, \{ F, H \} \right\}$. 
 
 	\begin{figure}
@@ -108,6 +109,7 @@ $\mc{C} = \left\{ \{A, B\}, \{B, C, D\}, \{D, E, F\}, \{D, F, G\}, \{ F, H \} \r
 		\end{tikzpicture}
 			
 		\caption{Node tree based on graph \ref{fig:graphForNodeTree} and $\mc{C}$}			
+		\label{fig:nodeTree}
 	\end{figure}
 	
 \end{ex}
@@ -126,7 +128,20 @@ as union of nodes from node tree $\mc{T}(G, \mc{C}_i(S))$ where $i \in \{1, 2\}$
 		\item $\bigcup_{C \in \mathcal{C}} C = V$ and
 		\item for any separator $S$ in node tree $\mathcal{T}(G, \mathcal{C})$ we have  
 		$$ \cSep{V_1(S) \setminus S}{V_2(S) \setminus S}{S}{G} $$
-	\end{enumerate}		
+	\end{enumerate}	
 	
 \end{defi}
+Let the node tree displayed in figure \ref{fig:nodeTree} be marked as $\mc{T}(G, \mc{C})$. The node tree $\mc{T}(G, \mc{C})$ is a separation tree of graph presented in figure \ref{fig:graphForNodeTree}. 
+The node tree $\mc{T}(G, \mc{C})$ contains four separators $\{B \}$, $\{D \}$, $\{F \}$, and $\{D, F \}$. If we remove a separator $\{D \}$ from $\mc{T}(G, \mc{C})$ we got $V_1(\{D \}) = \{A, B, C, D \}$ 
+and $V_2(\{D \}) = \{ D, E, F, G, H \}$. Condition 
+
+\begin{equation}
+	\cSep{ \{A, B, C\} }{ \{ E, F, G, H \} }{ \{ D \} }{G}
+\end{equation}
+
+holds, because every path from $\{A, B, C\}$ to $\{ E, F, G, H \}$ is hit by separator $\{ D\}$ in graph $G$. 
+Similar situation appears for every mentioned separator in node tree $\mc{T}(G, \mc{C})$, so it is actual a separation
+tree of chain graph $G$ presented in figure \ref{fig:graphForNodeTree}.
+
+
 

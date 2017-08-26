@@ -1,0 +1,40 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	August 2017
+%	Algorithm Comp. Complexity of LCD alg.
+%
+% ----------------------------------------------
+
+
+
+The skeleton and complex recovery phases are independent in sense of computational complexity, hence we can
+find upper bounds for those two phases separately. 
+Let suppose that we have unknown chain graph 
+$G = (V, E)$ with $|V| = n$ and $|E| = m$. Let further suppose that the input separation tree $\mc{T}$ contains 
+tree nodes
+$H = \{ C_1, C_2, \dots, C_k \}$. To denote number of elements of separation tree node $C_i$ we use $c_i$ and by
+$m$ we denote count of the biggest node in separation tree, that is $m = \max \{ c_i \ | \ i \in \{1, 2, \dots, k \} \}$.
+
+The most computational expensive step in the skeleton recovery algorithm is loop in line 5 and verifying 
+condition in line 6 of Algorithm \ref{skeletonRecoveryAlg}. For given node in the separation tree $C_i$ looping over
+all pairs $\{u, v\} \subset C_i$ is of complexity $\frac{1}{2} c_i \cdot (c_i + 1)$ which is $\mc{O}(c_i^2)$. For given node in the separation
+tree and given pair of vertex $\{u, v\}$ verifying condition in line 6 of Algorithm \ref{skeletonRecoveryAlg} is of
+cost $2^{c_i}$ because it requires to look over all subsets of $C_i$. Second and third steps of the skeleton
+recovery algorithm are less computational complex then the first step. Therefore complexity of the whole algorithm 
+is determined by complexity of the first step which can be estimated as follow
+
+
+\begin{equation}
+\begin{split}
+	T(\mc{T}) & = \mc{O} \left( \sum_{C_i \in H} \frac{1}{2} c_i (c_i + 1) 2^{c_i} \right)  \le  \\
+	&  \le \mc{O} \left( \sum_{C_i \in H} \frac{1}{2}m(m+1)2^{m} \right) =  \\
+	& = \mc{O} \left( km^2 2^m \right)
+\end{split}
+\end{equation}
+
+
+
+
+
+

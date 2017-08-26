@@ -1,0 +1,157 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	August 2017
+%	Skeleton recovery algorithm.
+%
+% ----------------------------------------------
+
+
+Some info about SKELETON RECOVERY ALG.
+
+\begin{algorithm}
+	\caption{(LCD) Skeleton Recovery}\label{skeletonRecoveryAlg}
+	
+	\textbf{Input:} A separation tree $ \mc{T}(G, \mc{C})$; 
+					perfect conditional independence knowledge about $\mathbb{P}$.  \\
+	\textbf{Output:} The skeleton $G^{'}$ of $G$; a set $\mc{S}$ of c-separators.
+
+	
+	\begin{algorithmic}[1]
+		\Procedure{RecoverySkeleton($ \mc{T}(G, \mc{C})$)}{}
+			\State $\mc{S} = \emptyset$
+	
+			\ForAll{$\mbox{node} \ C_h \in \mc{T}(G, \mc{C})$} 
+				\State	Create complete undirected graph $G_h = (C_h, E_h)$;
+				\ForAll{$\mbox{vertex pair} \ \{u, v \} \subset C_h $}
+					\If{$\exists S_{uv} \subset C_h \ u \bigCI v \mid S_{uv}$}
+						\State Delete edge $(u, v)$ from graph $G_h$;
+						\State $\mc{S} := \mc{S} \cup S_{uv}$; \Comment{Add set $S_{uv}$ to separators}
+					\EndIf
+				\EndFor
+			\EndFor			
+		
+			\State Combine all the graphs $(G_h)_{i \in \{1, \dots, H}$ into undirected graph 
+			$G^{'} = (V, \bigcup_{h = 1}^{H} E_h)$;
+			
+			\ForAll{$ \{u, v \} \in G^{'} \ \mbox{contained in more then 
+					one node of} \ \mc{T}(G, \mc{C})$}
+				\If{$ \exists C_h \ \{u, v \} \subset C_h \ \mbox{and} \ (u, v) \notin E_h$}
+					\State Delete the edge $(u, v)$ from $G^{'}$;
+				\EndIf
+			\EndFor
+			
+			\ForAll{$ \{u, v \} \in G^{'} \ \mbox{contained in more then 
+					one node of} \ \mc{T}(G, \mc{C})$}
+					
+				\State $N_{uv} := \{S \subset \mbox{ne}_{G^{'}}(u) \cup \mbox{ne}_{G^{'}}(v) \ | \ 
+									S \not\subset C_h \ \mbox{and} \ \{u, v\} \subset C_h  \}$
+									
+				\If{$u \bigCI v \mid S_{uv} \ \mbox{for some} \ S_{uv} \subset N_{uv}$}
+					\State Delete edge $(u, v)$ from graph $G^{'}$;
+					\State $\mc{S} := \mc{S} \cup S_{uv}$; \Comment{Add set $S_{uv}$ to separators}
+				\EndIf
+			\EndFor	
+			
+			\State \textbf{return:} $G^{'}$, $\mc{S}$.
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+
+% -----------------------------------
+%	Example of application LCD alg.
+% -----------------------------------
+
+\begin{ex}
+	To illustrate execution of the LCD algorithm let's assume we have data which joint distribution is faithful to
+	graph presented in figure \ref{fig:graphForNodeTree} but we do not know it's chain graph representation yet.
+	Additionally we have separation tree presented on figure \ref{fig:nodeTree}. 
+	Result of first phase of skeleton recovery algorithm is presented on figure \ref{fig:LCDfirstPhaseResult}. 
+	For every node tree we have local undirected graph representing local
+	(in sense of particular node) independence structure. Phase two of skeleton recovery algorithm join local graphs into
+	global undirected graph and removes some of redundant edges. 
+	Result of execution second phase is represented on figure
+	\ref{fig:LCDsecondPhaseResult}. Result of applying skeleton recovery algorithm is the same as outcome from second
+	phase of the algorithm, because there isn't pair of random variable satisfying condition from 20th line of Algorithm 
+	\ref{skeletonRecoveryAlg}.
+
+\end{ex}
+
+% -----------------------------------
+%	Viz. of I phase of LCD alg.
+% -----------------------------------
+\begin{figure}
+	\centering
+	\vspace{-10pt}
+	\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+	                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+		% Nodes
+		  %Row1
+		  \node (B1) at (0, 4) [main node] {B};
+		  \node (C1) at (2, 4) [main node] {C};
+		  \node (D1) at (2, 2) [main node] {D};
+		  
+		  \node (A2) at (4, 3) [main node] {A};
+		  \node (B2) at (6, 3) [main node] {B};
+		  
+		  \node (D3) at (8, 4) [main node] {D};
+		  \node (E3) at (8, 2) [main node] {E};
+		  \node (F3) at (10, 4) [main node] {F};
+		  
+		  % Row2
+		  \node(F4) at (2, -1) [main node] {F};
+		  \node(H4) at (4, -1) [main node] {H};
+		  
+		  \node(D5) at (6, 0) [main node] {D};
+		  \node(F5) at (8, 0) [main node] {F};
+		  \node(G5) at (8, -2) [main node] {G};			
+		
+		% Edges
+		  \draw (B1) -- (C1) -- (D1);
+		  \draw (A2) -- (B2);
+		  \draw (E3) -- (D3) -- (F3);			  
+		  
+		  \draw (F4) -- (H4);
+		  \draw (D5) -- (F5) -- (G5);
+		  
+		\end{tikzpicture}
+		
+	\caption{Result of first phase of LCD algorithm}			
+	\label{fig:LCDfirstPhaseResult} 
+\end{figure}
+
+
+
+
+% -----------------------------------
+%	Viz. of II phase of LCD Alg
+% -----------------------------------
+\begin{figure}
+		\centering
+		\vspace{-10pt}
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+			% Nodes
+			  \node[main node] (A) {A};
+			  \node[main node] (B) [above of = A] {B};
+			  \node[main node] (C) [right of = B] {C};
+			  \node[main node] (D) [below of = C] {D};
+			  \node[main node] (E) [below of = D] {E};
+			  \node[main node] (F) [right of = D] {F};
+			  \node[main node] (G) [above of = F] {G};
+			  \node[main node] (H) [below of = F] {H};			
+			
+			% Edges
+			  \draw (A) -- (B);
+			  \draw (B) -- (C);
+			  \draw (C) -- (D);
+			  \draw (D) -- (F);
+			  \draw	(D) -- (E);
+			  \draw (F) -- (G);
+			  \draw (F) -- (H);
+			\end{tikzpicture}
+			
+		\caption{Result of second phase of LCD algorithm}			
+		\label{fig:LCDsecondPhaseResult} 
+	\end{figure}
