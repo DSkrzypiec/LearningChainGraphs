@@ -14,7 +14,8 @@ Let suppose that we have unknown chain graph
 $G = (V, E)$ with $|V| = n$ and $|E| = m$. Let further suppose that the input separation tree $\mc{T}$ contains 
 tree nodes
 $H = \{ C_1, C_2, \dots, C_k \}$. To denote number of elements of separation tree node $C_i$ we use $c_i$ and by
-$m$ we denote count of the biggest node in separation tree, that is $m = \max \{ c_i \ | \ i \in \{1, 2, \dots, k \} \}$.
+$m$ we denote count of the biggest node in a separation tree $\mc{T}$, that is 
+$m = \max \{ c_i \ | \ i \in \{1, 2, \dots, k \} \}$.
 
 The most computational expensive step in the skeleton recovery algorithm is loop in line 5 and verifying 
 condition in line 6 of Algorithm \ref{skeletonRecoveryAlg}. For given node in the separation tree $C_i$ looping over

@@ -88,31 +88,32 @@ Some info about SKELETON RECOVERY ALG.
 	                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
 		% Nodes
 		  %Row1
+		  \node (A1) at (0, 2) [main node] {A};
 		  \node (B1) at (0, 4) [main node] {B};
 		  \node (C1) at (2, 4) [main node] {C};
-		  \node (D1) at (2, 2) [main node] {D};
 		  
-		  \node (A2) at (4, 3) [main node] {A};
-		  \node (B2) at (6, 3) [main node] {B};
+		  \node (C2) at (4, 3) [main node] {C};
+		  \node (D2) at (6, 3) [main node] {D};
 		  
 		  \node (D3) at (8, 4) [main node] {D};
 		  \node (E3) at (8, 2) [main node] {E};
 		  \node (F3) at (10, 4) [main node] {F};
 		  
 		  % Row2
+		  \node(E4) at (0, -1) [main node] {E};
 		  \node(F4) at (2, -1) [main node] {F};
 		  \node(H4) at (4, -1) [main node] {H};
 		  
-		  \node(D5) at (6, 0) [main node] {D};
-		  \node(F5) at (8, 0) [main node] {F};
-		  \node(G5) at (8, -2) [main node] {G};			
+		  \node(D5) at (6, -2) [main node] {D};
+		  \node(F5) at (8, -2) [main node] {F};
+		  \node(G5) at (8, 0) [main node] {G};			
 		
 		% Edges
-		  \draw (B1) -- (C1) -- (D1);
-		  \draw (A2) -- (B2);
-		  \draw (E3) -- (D3) -- (F3);			  
+		  \draw (A1) -- (B1) -- (C1);
+		  \draw (C2) -- (D2);
+		  \draw (E3) -- (D3) -- (F3) -- (E3);			  
 		  
-		  \draw (F4) -- (H4);
+		  \draw (E4) -- (F4) -- (H4);
 		  \draw (D5) -- (F5) -- (G5);
 		  
 		\end{tikzpicture}
@@ -146,7 +147,7 @@ Some info about SKELETON RECOVERY ALG.
 			  \draw (A) -- (B);
 			  \draw (B) -- (C);
 			  \draw (C) -- (D);
-			  \draw (D) -- (F);
+			  \draw (D) -- (F) -- (E);
 			  \draw	(D) -- (E);
 			  \draw (F) -- (G);
 			  \draw (F) -- (H);

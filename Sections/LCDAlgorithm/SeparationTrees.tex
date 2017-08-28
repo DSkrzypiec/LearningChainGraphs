@@ -46,7 +46,7 @@ We will be using graphical convention for representing node trees proposed by Ma
 
 \begin{ex} (Node tree) \\
 To illustrate node tree definition let's consider graph presented in figure \ref{fig:graphForNodeTree} and node set 
-$\mc{C} = \left\{ \{A, B\}, \{B, C, D\}, \{D, E, F\}, \{D, F, G\}, \{ F, H \} \right\}$. 
+$\mc{C} = \left\{ \{A, B, C\}, \{C, D\}, \{D, E, F\}, \{D, F, G\}, \{E, F, H \} \right\}$. 
 
 	\begin{figure}
 		\centering
@@ -66,10 +66,11 @@ $\mc{C} = \left\{ \{A, B\}, \{B, C, D\}, \{D, E, F\}, \{D, F, G\}, \{ F, H \} \r
 			% Edges
 			  \draw[->] (A) -- (B);
 			  \draw     (B) -- (C);
-			  \draw[->] (C) -- (D);
+			  \draw[->] (D) -- (C);
 			  \draw[->] (D) -- (F);
 			  \draw		(D) -- (E);
-			  \draw[->] (F) -- (G);
+			  \draw[->] (E) -- (F);
+			  \draw		(F) -- (G);
 			  \draw		(F) -- (H);
 			\end{tikzpicture}
 			
@@ -86,26 +87,26 @@ $\mc{C} = \left\{ \{A, B\}, \{B, C, D\}, \{D, E, F\}, \{D, F, G\}, \{ F, H \} \r
 		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
 		                    
 			% Nodes
-			 \node[triangle] 	(BCD) 	at (0, 0) 	{};
-			 \node				(BCD_)	at (0, 0)	{B C D};
-			 \node[block] 		(B)		at (-2, -1.5) {B};
+			 \node[triangle] 	(CD) 	at (0, 0) 	{};
+			 \node				(CD_)	at (0, 0)	{C D};
+			 \node[block] 		(C)		at (-2, -1.5) {C};
 			 \node[block] 		(D) 	at (2, -1.5)	{D};
-			 \node[triangle] 	(AB) 	at (-2, -3.5)	{};
-			 \node 				(AB_)	at (-2, -3.5) {A B};
+			 \node[triangle] 	(ABC) 	at (-2, -3.5)	{};
+			 \node 				(ABC_)	at (-2, -3.5) {A B C};
 			 \node[triangle]	(DEF)	at (2, -3.5)	{};
 			 \node				(DEF_)	at (2, -3.5)	{D E F};
 			 \node[block]		(DF)	at (3, -5)	{D F};
-			 \node[block]		(F)		at (1, -5)	{F};
+			 \node[block]		(EF)	at (1, -5)	{E F};
 			 \node[triangle]	(DFG)	at (4, -6.5)		{};
 			 \node				(DFG_)	at (4, -6.5)		{D F G};	
-			 \node[triangle]	(FH)	at (0, -6.5)	{};
-			 \node 				(FH_)	at (0, -6.5)	{F H};	 
+			 \node[triangle]	(EFH)	at (0, -6.5)	{};
+			 \node 				(EFH_)	at (0, -6.5)	{E F H};	 
 			 
-			\draw (BCD) -- (B);
-			\draw (BCD) -- (D);
-			\draw (B) -- (AB);
+			\draw (CD) -- (C);
+			\draw (CD) -- (D);
+			\draw (C) -- (ABC);
 			\draw (D) -- (DEF) -- (DF) -- (DFG);
-			\draw (DEF) -- (F) -- (FH);
+			\draw (DEF) -- (EF) -- (EFH);
 		\end{tikzpicture}
 			
 		\caption{Node tree based on graph \ref{fig:graphForNodeTree} and $\mc{C}$}			
@@ -132,7 +133,7 @@ as union of nodes from node tree $\mc{T}(G, \mc{C}_i(S))$ where $i \in \{1, 2\}$
 	
 \end{defi}
 Let the node tree displayed in figure \ref{fig:nodeTree} be marked as $\mc{T}(G, \mc{C})$. The node tree $\mc{T}(G, \mc{C})$ is a separation tree of graph presented in figure \ref{fig:graphForNodeTree}. 
-The node tree $\mc{T}(G, \mc{C})$ contains four separators $\{B \}$, $\{D \}$, $\{F \}$, and $\{D, F \}$. If we remove a separator $\{D \}$ from $\mc{T}(G, \mc{C})$ we got $V_1(\{D \}) = \{A, B, C, D \}$ 
+The node tree $\mc{T}(G, \mc{C})$ contains four separators $\{C \}$, $\{D \}$, $\{E, F \}$, and $\{D, F \}$. If we remove a separator $\{D \}$ from $\mc{T}(G, \mc{C})$ we got $V_1(\{D \}) = \{A, B, C, D \}$ 
 and $V_2(\{D \}) = \{ D, E, F, G, H \}$. Condition 
 
 \begin{equation}
