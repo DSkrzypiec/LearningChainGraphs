@@ -6,8 +6,7 @@
 %
 % ----------------------------------------------
 
-
-Some info about COMPLEX RECOVERY ALG.
+[...] The following algorithm was introduced in \cite{CG}, chapter 3.3, algorithm 2.
 
 \begin{algorithm}
 	\caption{(LCD) Complex Recovery}\label{complexRecoveryAlg}
@@ -33,3 +32,56 @@ Some info about COMPLEX RECOVERY ALG.
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
+
+
+\begin{ex}
+	In this example we present performance of complex recovery algorithm for outcomes from skeleton recovery
+	algorithm presented in Example \ref{skeletonRecoveryEx}. If we consider pair $[D, A]$ in outer loop in
+	the algorithm we find that $S_{DA} = \{ B \}$ and $D \not \bigCI A \mid \{ B \} \cup \{ C \}$, therefore 
+	we orient edge $D \rightarrow C$. Similar we orient edge $A \rightarrow B$, because for pair $[A, D]$ in
+	the outer loop we have $S_{AD} = \{ B \}$ and $A \not \bigCI D \mid \{ B \} $. Conditional independence 
+	in this case is not satisfied because condition $\cSep{A}{D}{B}{G}$ does not hold and we have assumption
+	of faithfulness. For $[D, G]$ in outer loop we have $S_{DG} = \{ F\}$ and 
+	$D \not \bigCI G \mid S_{DG} \cup \{ F \}$, hence we orient edge $D \rightarrow F$. Orientation of edge 
+	$E \rightarrow F$ is obtained by consideration $[E, H]$ in outer loop and $w = F$. Result of complex
+	recovery algorithm is presented in figure \ref{fig:ComplexREcoveryResult}. The edge $[F, H]$ was not oriented
+	by the algorithm because condition $F \not\bigCI H \mid F$ is not satisfied. As we mentioned before 
+	LCD algorithm creates representative of Markov equivalence class of given chain graph. 
+	Chain graphs presented in figure \ref{fig:ComplexREcoveryResult} and \ref{fig:graphForNodeTree} are in the
+	same Markov equivalence class.  
+\end{ex}
+
+
+
+% -----------------------------------
+%	Viz. of complex recovery alg
+% -----------------------------------
+\begin{figure}
+		\centering
+		\vspace{-10pt}
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+			% Nodes
+			  \node[main node] (A) {A};
+			  \node[main node] (B) [above of = A] {B};
+			  \node[main node] (C) [right of = B] {C};
+			  \node[main node] (D) [below of = C] {D};
+			  \node[main node] (E) [below of = D] {E};
+			  \node[main node] (F) [right of = D] {F};
+			  \node[main node] (G) [above of = F] {G};
+			  \node[main node] (H) [below of = F] {H};			
+			
+			% Edges
+			  \draw[->] (A) -- (B);
+			  \draw     (B) -- (C);
+			  \draw[->] (D) -- (C);
+			  \draw[->] (D) -- (F);
+			  \draw	    (D) -- (E);
+			  \draw[->] (E) -- (F);
+			  \draw     (F) -- (G);
+			  \draw     (F) -- (H);
+			\end{tikzpicture}
+			
+		\caption{Result of Complex Recovery Algorithm}			
+		\label{fig:ComplexREcoveryResult} 
+\end{figure}

@@ -6,4 +6,29 @@
 %
 % ----------------------------------------------
 
-There will be mathematical basis for LCD algorithm. In particular theorem $3$ from \cite{CG}.
+[...] Some introduction.
+
+
+\begin{thm} (\cite{CG}, chapter 3.1, Theorem 3) \\ 
+	Let $\mc{T}(G, \mc{C})$ be a separation tree for chain graph $G$. Then vertices $u$ and $v$ are 
+	c-separated by some set $S_{uv} \subset V$ in $G$ if and only if one the following conditions hold:
+	
+	\begin{enumerate}
+		\item Vertices $u$ and $v$ are not contained together in any node $C$ of $\mc{T}(G, \mc{C})$,
+		
+		\item Vertices $u$ and $v$ are contained together in some node $C$, but for any separator $S$ connected
+		to $C$, $\{u, v \} \not \subset S$, and there exists $S_{uv}^{'} \subset C$ such 
+		that $\cSep{u}{v}{S_{uv}^{'}}{G}$,
+		
+		\item Vertices $u$ and $v$ are contained together in some node $C$ and both of them belong to some separator
+		connected to $C$, but there is a subset $S_{uv}^{'}$ of either $\bigcup_{u \in C^{'}} C^{'}$ or
+		$\bigcup_{v \in C^{'}} C^{'}$ such that $\cSep{u}{v}{S_{uv}^{'}}{G}$.
+	\end{enumerate}
+\end{thm}
+
+
+ 
+\begin{prop} (\cite{CG}, chapter 3.1, Proposition 4) \\
+	Let $G$ be a chain graph and $\mc{T}(G, \mc{C})$ be a separation tree of $G$. For any complex $\mc{K}$ in $G$, there
+	exists some node tree $C$ of $\mc{T}(G, \mc{C})$ such that $\mc{K} \subset C$.
+\end{prop}

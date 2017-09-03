@@ -8,6 +8,7 @@
 
 
 Some info about SKELETON RECOVERY ALG.
+[...] The following algorithm was introduced in \cite{CG}, chapter 3.2, algorithm 1.
 
 \begin{algorithm}
 	\caption{(LCD) Skeleton Recovery}\label{skeletonRecoveryAlg}
@@ -63,7 +64,7 @@ Some info about SKELETON RECOVERY ALG.
 %	Example of application LCD alg.
 % -----------------------------------
 
-\begin{ex}
+\begin{ex} \label{skeletonRecoveryEx}
 	To illustrate execution of the LCD algorithm let's assume we have data which joint distribution is faithful to
 	graph presented in figure \ref{fig:graphForNodeTree} but we do not know it's chain graph representation yet.
 	Additionally we have separation tree presented on figure \ref{fig:nodeTree}. 
@@ -74,7 +75,7 @@ Some info about SKELETON RECOVERY ALG.
 	Result of execution second phase is represented on figure
 	\ref{fig:LCDsecondPhaseResult}. Result of applying skeleton recovery algorithm is the same as outcome from second
 	phase of the algorithm, because there isn't pair of random variable satisfying condition from 20th line of Algorithm 
-	\ref{skeletonRecoveryAlg}.
+	\ref{skeletonRecoveryAlg}. Output set of separators in this example is $\mc{S} = \{ \{B\}, \{F \} \}$.
 
 \end{ex}
 
