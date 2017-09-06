@@ -9,7 +9,7 @@
 [...] Some introduction.
 
 
-\begin{thm} (\cite{CG}, chapter 3.1, Theorem 3) \\ 
+\begin{thm} \label{LCDSkeletonThm} (\cite{CG}, chapter 3.1, Theorem 3) \\ 
 	Let $\mc{T}(G, \mc{C})$ be a separation tree for chain graph $G$. Then vertices $u$ and $v$ are 
 	c-separated by some set $S_{uv} \subset V$ in $G$ if and only if one the following conditions hold:
 	
@@ -28,7 +28,49 @@
 
 
  
-\begin{prop} (\cite{CG}, chapter 3.1, Proposition 4) \\
+\begin{prop} \label{LCDComplexProp} (\cite{CG}, chapter 3.1, Proposition 4) \\
 	Let $G$ be a chain graph and $\mc{T}(G, \mc{C})$ be a separation tree of $G$. For any complex $\mc{K}$ in $G$, there
 	exists some node tree $C$ of $\mc{T}(G, \mc{C})$ such that $\mc{K} \subset C$.
 \end{prop}
+
+\begin{prf} 
+	Let suppose oposite. Let $\mc{K} = (u, w_1, \dots, w_n, v)$ be a complex in chain graph $G$ such that 
+	for any node $C$ in separation tree $\mc{T}(G, \mc{C})$ vertex $u$ and $v$ are not contained together in $C$.
+	Now let suppose that $u \in C_u$ and $v \in C_v$ where $C_u$ and $C_v$ are nodes of the separation tree.
+
+
+	% Vizualization of path between C_u and C_v in the separation tree.	
+	\begin{figure}[h]
+		\centering
+		\vspace{-10pt}
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+		                    
+			% Nodes
+			 \node[triangle] 	(Cu) 	at (0, 0) 	{$C_u$};
+			 \node[block] 		(S1)	at (2, 0)	{$S_1$};
+			 \node[triangle] 	(C1) 	at (4, 0) 	{$C_1$};
+			 \node[block] 		(S2)	at (6, 0)	{$S_2$};
+			 \node			(dots)	at (8, 0)	{...};
+			 \node[block]		(Sk)	at (10, 0)	{$S_k$};
+			 \node[triangle] 	(Cv) 	at (12, 0) 	{$C_v$};
+			 
+			\draw (Cu) -- (S1) -- (C1) -- (S2) -- (dots) -- (Sk) -- (Cv);
+		\end{tikzpicture}
+			
+		\caption{Path between $C_u$ and $C_v$ in separation tree $\mc{T}$}			
+		\label{fig:pathInSepTree}
+	\end{figure}
+	
+	Futhermore we introduce $\rho = \{C_u, S_1, C_1, S_2, \dots, S_k, C_v \}$ as a path between $C_u$ and $C_v$ in
+	the separation tree $\mc{T}(G, \mc{C})$. We observe that  $u \not \in S_1$ and $v \not \in S_1$ then we have 
+	$\{ w_1, w_2, \dots, w_n \} \cap S_1 \neq \emptyset$ and therefore $u \not \bigCI v \mid S_1$. The last implication 
+	holds because in this case we have a head-to-head section $u \rightarrow w_1 - w_2 - \dots - w_n \leftarrow v$
+	and if $\{ w_1, w_2, \dots, w_n \} \cap S_1 \neq \emptyset$ then this section is not outside of $S_1$. 
+	Condition $u \not \bigCI v \mid S_1 $ is contrary to definition of separation tree.
+	Because of the above contrary we can assume that $u \in C_1$ and repeate the same process. After finite number
+	of iteration we obtain that $u$ and $v$ have to be contained in the same node of the separation tree.
+	\QED
+\end{prf}
+
+

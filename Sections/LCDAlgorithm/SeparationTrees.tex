@@ -46,7 +46,7 @@ We will be using graphical convention for representing node trees proposed by Ma
 
 \begin{ex} (Node tree) \\
 To illustrate node tree definition let's consider graph presented in figure \ref{fig:graphForNodeTree} and node set 
-$\mc{C} = \left\{ \{A, B, C\}, \{C, D\}, \{D, E, F\}, \{D, F, G\}, \{E, F, H \} \right\}$. 
+	$\mc{C} = \left\{ \{A, I\}, \{A, B, C, D\}, \{D, E, F\}, \{D, F, G\}, \{E, F, H \} \right\}$. 
 
 	\begin{figure}
 		\centering
@@ -62,7 +62,8 @@ $\mc{C} = \left\{ \{A, B, C\}, \{C, D\}, \{D, E, F\}, \{D, F, G\}, \{E, F, H \} 
 			  \node[main node] (F) [right of = D] {F};
 			  \node[main node] (G) [above of = F] {G};
 			  \node[main node] (H) [below of = F] {H};			
-			
+			  \node[main node] (I) [below of = A] {I};
+
 			% Edges
 			  \draw[->] (A) -- (B);
 			  \draw     (B) -- (C);
@@ -72,6 +73,7 @@ $\mc{C} = \left\{ \{A, B, C\}, \{C, D\}, \{D, E, F\}, \{D, F, G\}, \{E, F, H \} 
 			  \draw[->] (E) -- (F);
 			  \draw		(F) -- (G);
 			  \draw[->]	(F) -- (H);
+			  \draw	    (I) -- (A);
 			\end{tikzpicture}
 			
 		\caption{Example graph for node tree illustration}			
@@ -88,11 +90,12 @@ $\mc{C} = \left\{ \{A, B, C\}, \{C, D\}, \{D, E, F\}, \{D, F, G\}, \{E, F, H \} 
 		                    
 			% Nodes
 			 \node[triangle] 	(CD) 	at (0, 0) 	{};
-			 \node				(CD_)	at (0, 0)	{C D};
-			 \node[block] 		(C)		at (-2, -1.5) {C};
+			 \node				(CD_up)	at (0, 0.2)	{A B};
+			 \node				(CD_down) at (0, -0.2)	{C D};
+			 \node[block] 		(C)		at (-2, -1.5) {A};
 			 \node[block] 		(D) 	at (2, -1.5)	{D};
 			 \node[triangle] 	(ABC) 	at (-2, -3.5)	{};
-			 \node 				(ABC_)	at (-2, -3.5) {A B C};
+			 \node 				(ABC_)	at (-2, -3.5) {A I};
 			 \node[triangle]	(DEF)	at (2, -3.5)	{};
 			 \node				(DEF_)	at (2, -3.5)	{D E F};
 			 \node[block]		(DF)	at (3, -5)	{D F};
@@ -121,7 +124,7 @@ $\mc{C}_1(S) \cup \mc{C}_2(S) = \mc{C}$. To simplify notation we use
 $$ V_i(S) = \bigcup_{C \in \mc{C}_i(S)} C$$
 as union of nodes from node tree $\mc{T}(G, \mc{C}_i(S))$ where $i \in \{1, 2\}$.
 
-\begin{defi} (Separation tree) \\
+\begin{defi} \label{sepTreeDef} (Separation tree) \\
 	For given chain graph $G = (V, E)$ and node set $\mathcal{C}$ we say that node tree $\mathcal{T}(G, \mathcal{C})$
 	is a separation tree if 
 
@@ -132,17 +135,26 @@ as union of nodes from node tree $\mc{T}(G, \mc{C}_i(S))$ where $i \in \{1, 2\}$
 	\end{enumerate}	
 	
 \end{defi}
-Let the node tree displayed in figure \ref{fig:nodeTree} be marked as $\mc{T}(G, \mc{C})$. The node tree $\mc{T}(G, \mc{C})$ is a separation tree of graph presented in figure \ref{fig:graphForNodeTree}. 
-The node tree $\mc{T}(G, \mc{C})$ contains four separators $\{C \}$, $\{D \}$, $\{E, F \}$, and $\{D, F \}$. If we remove a separator $\{D \}$ from $\mc{T}(G, \mc{C})$ we got $V_1(\{D \}) = \{A, B, C, D \}$ 
-and $V_2(\{D \}) = \{ D, E, F, G, H \}$. Condition 
+Let the node tree displayed in figure \ref{fig:nodeTree} be marked as $\mc{T}(G, \mc{C})$. 
+The node tree $\mc{T}(G, \mc{C})$ contains four separators $\{A \}$, $\{D \}$, $\{E, F \}$, and $\{D, F \}$. At this point we know that 
+$ \bigcup_{C \in \mc{C}} C = V$. To examine if node tree $\mc{T}(G, \mc{C})$ is a separation tree we have to check if second condition 
+from definition \ref{sepTreeDef} are satisfied for every separator in $\mc{T}(G, \mc{C})$. 
+If we consider separator $\{A \}$ of node tree $\mc{T}(G, \mc{C})$ then we obtain $V_1(\{A \}) = \{ A, I \}$ and 
+$V_2(\{A \}) = \{ A, B, C, D, E, F, G, H\}$. The following condition of c-separation 
 
 \begin{equation}
-	\cSep{ \{A, B, C\} }{ \{ E, F, G, H \} }{ \{ D \} }{G}
+	\cSep{ \{I \} }{ \{B, C, D, E, F, G, H \} }{ \{ A \} }{G}
 \end{equation}
 
-holds, because every path from $\{A, B, C\}$ to $\{ E, F, G, H \}$ is hit by separator $\{ D\}$ in graph $G$. 
-Similar situation appears for every mentioned separator in node tree $\mc{T}(G, \mc{C})$, so it is actual a separation
-tree of chain graph $G$ presented in figure \ref{fig:graphForNodeTree}.
+holds, because every route from $V_1(\{A \}) \setminus \{A \}$ to $V_2(\{A \}) \setminus \{A \}$ has only non head-to-head sections 
+and for each route 
+exist some section which is hit by $A$ in graph $G$. Now if we consider separator $\{ D \}$ we have $V_1(\{D \}) = \{ A, B, C, D, I\}$ 
+and $V_2(\{D \}) = \{ D, E, F, G, H\}$. There is no route from $\{A, B, C, I \}$ to $\{ E, F, G, H\}$ which would have
+a head-to-head section. Additionally every route from $\{A, B, C, I \}$ to $\{ E, F, G, H\}$ contains section which is hit by $D$.
+Therefore $\{D \}$ c-separates 
+$\{A, B, C, I \}$ and $\{ E, F, G, H\}$ in graph $G$. Using the same argument we could prove that separators $\{E, F\}$ and 
+$\{ D, F\}$ also satisfies second condition in c-separation definition \ref{sepTreeDef}. Thus node tree $\mc{T}(G, \mc{C})$ presented
+in figure \ref{fig:nodeTree} is actual a separation tree of chain graph $G$ presented in figure \ref{fig:graphForNodeTree}.
 
 
 

@@ -7,8 +7,16 @@
 % ----------------------------------------------
 
 
-Some info about SKELETON RECOVERY ALG.
-[...] The following algorithm was introduced in \cite{CG}, chapter 3.2, algorithm 1.
+Skeleton Recovery algorithm is composed of three parts. In the first part of this algorithm (lines 3-11) local skeletons are recovered.
+This is obtained by looping over all nodes in $ \mc{T}(G, \mc{C})$. For given node $C_h \in \mc{T}(G, \mc{C})$ we create
+complite graph $G_h = (C_h, E_h)$ and we test conditional independence of all possible pairs of $C_h$. For fixed pair
+$\{u, v\} \in C_h$ we every subset $S_{uv} \subset C_h$ we test condition $u \bigCI v \mid S_{uv}$. If such a condition
+is satisfied then edge $(u, v)$ is removed from local graph $G_h$. By condition $1$ from theorem \ref{LCDSkeletonThm} we observe
+that edge which is removed from local skeleton cannot occure in global skeleton. This observation increase performance
+of implementation of Skeleton Recovery algorithm. In the second part of Skeleton Recovery algorithm (lines 12-17) local
+skeletons are combined into global skeleton and some of extra edges are removed based on second condition in theorem \ref{LCDSkeletonThm}.
+The third part of this algorithm (lines 18-24) also focus on removing incorrect edges. This part of algorithm are backed up by
+third condition of theorem \ref{LCDSkeletonThm}. The following algorithm was introduced in \cite{CG}, chapter 3.2, algorithm 1.
 
 \begin{algorithm}
 	\caption{(LCD) Skeleton Recovery}\label{skeletonRecoveryAlg}
@@ -75,7 +83,7 @@ Some info about SKELETON RECOVERY ALG.
 	Result of execution second phase is represented on figure
 	\ref{fig:LCDsecondPhaseResult}. Result of applying skeleton recovery algorithm is the same as outcome from second
 	phase of the algorithm, because there isn't pair of random variable satisfying condition from 20th line of Algorithm 
-	\ref{skeletonRecoveryAlg}. Output set of separators in this example is $\mc{S} = \{ \{B\}, \{F \} \}$.
+	\ref{skeletonRecoveryAlg}. Output set of separators in this example is $\mc{S} = \{ \{B, C \}, \{F \} \}$.
 
 \end{ex}
 
@@ -89,13 +97,14 @@ Some info about SKELETON RECOVERY ALG.
 	                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
 		% Nodes
 		  %Row1
-		  \node (A1) at (0, 2) [main node] {A};
-		  \node (B1) at (0, 4) [main node] {B};
-		  \node (C1) at (2, 4) [main node] {C};
+		  \node (A1) at (0, 3) [main node] {A};
+		  \node (I1) at (2, 3) [main node] {I};
 		  
-		  \node (C2) at (4, 3) [main node] {C};
-		  \node (D2) at (6, 3) [main node] {D};
-		  
+		  \node (A2) at (4, 2) [main node] {A};
+		  \node (B2) at (4, 4) [main node] {B};
+		  \node (C2) at (6, 4) [main node] {C};
+		  \node (D2) at (6, 2) [main node] {D};
+
 		  \node (D3) at (8, 4) [main node] {D};
 		  \node (E3) at (8, 2) [main node] {E};
 		  \node (F3) at (10, 4) [main node] {F};
@@ -110,8 +119,8 @@ Some info about SKELETON RECOVERY ALG.
 		  \node(G5) at (8, 0) [main node] {G};			
 		
 		% Edges
-		  \draw (A1) -- (B1) -- (C1);
-		  \draw (C2) -- (D2);
+		  \draw (A1) -- (I1);
+		  \draw (A2) -- (B2) -- (C2) -- (D2);
 		  \draw (E3) -- (D3) -- (F3) -- (E3);			  
 		  
 		  \draw (E4) -- (F4) -- (H4);
@@ -143,8 +152,10 @@ Some info about SKELETON RECOVERY ALG.
 			  \node[main node] (F) [right of = D] {F};
 			  \node[main node] (G) [above of = F] {G};
 			  \node[main node] (H) [below of = F] {H};			
+			  \node[main node] (I) [below of = A] {I};			
 			
 			% Edges
+			  \draw (I) -- (A);
 			  \draw (A) -- (B);
 			  \draw (B) -- (C);
 			  \draw (C) -- (D);

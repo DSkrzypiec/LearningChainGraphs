@@ -6,7 +6,7 @@
 %
 % ----------------------------------------------
 
-[...] The following algorithm was introduced in \cite{CG}, chapter 3.3, algorithm 2.
+Some words. The following algorithm was introduced in \cite{CG}, chapter 3.3, algorithm 2.
 
 \begin{algorithm}
 	\caption{(LCD) Complex Recovery}\label{complexRecoveryAlg}
@@ -52,7 +52,7 @@
 \end{ex}
 
 
-
+% For Test -- -- --  
 % -----------------------------------
 %	Viz. of complex recovery alg
 % -----------------------------------
@@ -70,8 +70,10 @@
 			  \node[main node] (F) [right of = D] {F};
 			  \node[main node] (G) [above of = F] {G};
 			  \node[main node] (H) [below of = F] {H};			
+			  \node[main node] (I) [below of = A] {I};			
 			
 			% Edges
+			  \draw     (I) -- (A);
 			  \draw[->] (A) -- (B);
 			  \draw     (B) -- (C);
 			  \draw[->] (D) -- (C);

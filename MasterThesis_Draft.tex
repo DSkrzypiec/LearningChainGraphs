@@ -48,7 +48,9 @@
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{ex}{Example}[section]
+\newtheorem*{prf}{Proof}
 \newtheorem{remark}{Remark}[section]
+
 
 % Definition of symbol C-Separation
 \newcommand{\cSep}[4]{\ensuremath{\left\langle #1 , #2 \mid #3 \right\rangle_{\mathcal{#4}}^{sep}}}
@@ -56,7 +58,7 @@
 % Short for \mathcal{}
 \newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}}
 \newcommand{\mb}[1]{\ensuremath{\mathbb{#1}}}
-
+\newcommand*{\QED}{\hfill\ensuremath{\blacksquare}}
 
 % Dane magistranta:
 
@@ -90,7 +92,8 @@
 
 %Klasyfikacja tematyczna wedlug AMS (matematyka) lub ACM (informatyka)
 \klasyfikacja{62 Statistics \\
-		62C10 Bayesian Problems \\
+		62-09 Graphical methods \\
+		62E10 Characterization and structure theory
 		}
 
 % Słowa kluczowe:
@@ -133,25 +136,27 @@
 	\input{Sections/LCDAlgorithm/Overview}
 
 	\section{Decomposition of chain graphs}
+		\input{Sections/LCDAlgorithm/SeparationTreesOverview}
 		
-		\subsection{Separation Trees}
+		\subsection{Separation Trees} \label{subsec:SepTrees}
 			\input{Sections/LCDAlgorithm/SeparationTrees}
 			
-		\subsection{Construction of Separation Trees}
+		\subsection{Construction of Separation Trees} \label{subsec:SepTreesConstruct}
 			\input{Sections/LCDAlgorithm/ConstructionOfSeparationTrees}			
 			
 	\section{Algorithm}
-	
-		\subsection{Mathematical basis}
+		\input{Sections/LCDAlgorithm/AlgOverview}
+			
+		\subsection{Mathematical basis} \label{subsec:LCDMathBasis}
 			\input{Sections/LCDAlgorithm/MathematicalBasis}	
 	
-		\subsection{Skeleton recovery}
+		\subsection{Skeleton recovery} \label{subsec:LCDSkeletonRecovery}
 			\input{Sections/LCDAlgorithm/SkeletonRecovery}	
 	
-		\subsection{Complexes recovery}
+		\subsection{Complex recovery} \label{subsec:LCDComplexRecovery}
 			\input{Sections/LCDAlgorithm/ComplexRecovery}
 	
-		\subsection{Algorithm complexity}
+		\subsection{Algorithm complexity} \label{subsec:LCDAlgComplex}
 			\input{Sections/LCDAlgorithm/Complexity}
 			
 			
@@ -161,8 +166,6 @@
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{chapter}{Bibliography}
 	\bibitem{CGMP} M. Frydenberg, \textit{The Chain Graph Markov Property}, Scandinavian Journal of Statistics 17 (1990) 333-353	
-	
-	\bibitem{UGM} R. D. Nowak and D. Vats, \textit{A Junction Tree Framework for Undirected Graphical Model Selection}, Journal of Machine Learning Research 15 (2014) 147-191
 	
 	\bibitem{CG} Z. Ma, X. Xie and Z. Geng, \textit{Structural Learning Of Chain Graphs via Decomposition}, Journal of Machine Learning Research 9 (2008) 2847-2880
 

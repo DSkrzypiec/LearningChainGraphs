@@ -1,0 +1,23 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	August 2017
+%	Section LCD Algorithm overview.
+%
+% ----------------------------------------------
+
+
+We pointed out before that LCD algorithm is composed of two phases. In the first phase
+skeleton of chain graph is constructed based on provided separation tree of chain graph and 
+knowledge about conditional probability distribution. Outcome of this phase is skeleton $G^{'}$ of chain
+graph $G$ and set of separators $\mc{S}$. In the second phase complexes of chain graph $G$ are 
+reconstructed. Algorithm in the second phase is based on outcome of the first phase. 
+Mathematical grounds for both algorithms are described in subsection \ref{subsec:LCDMathBasis}.
+In subsection \ref{subsec:LCDSkeletonRecovery} we describe skeleton recovery algorithm (phase 1) and
+present associated example. In subsection \ref{subsec:LCDComplexRecovery} we describe complex recovery 
+algorithm (phase 2) and also present associated example. In subsection \ref{subsec:LCDAlgComplex} we 
+performe analysis of computitional complexity of the LCD algorithm. 
+
+
+
+

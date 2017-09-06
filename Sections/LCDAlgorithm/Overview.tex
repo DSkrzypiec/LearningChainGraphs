@@ -7,9 +7,9 @@
 % ----------------------------------------------
 
 LCD algorithm is short for \textit{Learning of Chain graphs via Decomposition} algorithm. The algorithm was introduced by Ma, Xie and Geng in paper \textit{Structural Learning of Chain Graphs via Decomposition} \cite{CG}. LCD algorithm returns 
-representative chain graph of it's Markov equivalence class, because even with perfect knowledge on the data probability
+representative chain graph of it's Markov equivalence class, because even with perfect knowledge of data probability
 distribution any two chain graph structures within the same Markov equivalence class are indistinguishable. (TODO: Add ref)
-The algorithm is build from two steps - recovering skeleton of chain graph and the second is recovering complexes. This
+The algorithm is composed of two steps - recovering skeleton of chain graph and the second is recovering complexes. This
 idea is backed up by proposition \ref{markovEquivThm}. 
 The main idea of skeleton recovery is to decompose set of variables into smaller sets, determine independence structure there and join results in a correct way. To decompose problem into smaller subproblems concept of 
 separation trees is being used.
