@@ -31,6 +31,23 @@ $E$ is default notation for set of graph's edges.
 
 
 % ----------------------
+% Parents, Neighbours, Boundry 
+% ----------------------
+\begin{defi} (Parents, Neighbours, Boundry) \\
+	Let $G = (V, E)$ be a graph and $Y \subset V$ be a set of vertices. We define as follows
+	\begin{enumerate}
+		\item Parents of set $Y$ in graph $G$ is the set defined as 
+			$\mbox{Pa}_G(Y) = \left\{ X \ : \ X \rightarrow Z_{Y} \ \mbox{for} \ Z_Y \in Y \right\}$.
+		
+		\item Neighbors of set $Y$ in graph $G$ is the set defined as 
+			$\mbox{Na}_G(Y) = \left\{ X \ : \ X - Z_{Y} \ \mbox{for} \ Z_{Y} \in Y \right\}$.
+
+		\item Boundry of vertex $v \in V$ in graph $G$ is the set defined as $\mbox{Bd}_{G}(v) = \mbox{Pa}_G(v) \cup \mbox{Ne}_G(v)$.
+	\end{enumerate}
+\end{defi}
+
+
+% ----------------------
 % Sekelton
 % ----------------------
 \begin{defi} (Skeleton) \\

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.5)  6 SEP 2017 19:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.5)  13 SEP 2017 01:28
 entering extended mode
 **./MasterThesis_Draft.tex
 (MasterThesis_Draft.tex
@@ -934,8 +934,14 @@ Chapter 1.
 
 ]
 Chapter 2.
-(Sections/Preliminaries/GraphDefinitions.tex [11] [12])
-(Sections/Preliminaries/GraphicalModelDefinitions.tex [13]) [14]
+(Sections/Preliminaries/GraphDefinitions.tex
+Overfull \hbox (8.01608pt too wide) in paragraph at lines 42--44
+[]\OT1/cmr/m/n/10.95 Neighbors of set $\OML/cmm/m/it/10.95 Y$ \OT1/cmr/m/n/10.9
+5 in graph $\OML/cmm/m/it/10.95 G$ \OT1/cmr/m/n/10.95 is the set de-fined as $[
+][](\OML/cmm/m/it/10.95 Y\OT1/cmr/m/n/10.95 ) = []$. 
+ []
+
+[11] [12]) (Sections/Preliminaries/GraphicalModelDefinitions.tex [13]) [14]
 Chapter 3.
 (Sections/LCDAlgorithm/Overview.tex)
 (Sections/LCDAlgorithm/SeparationTreesOverview.tex)
@@ -952,38 +958,40 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 (Sections/LCDAlgorithm/ComplexRecovery.tex [20])
 (Sections/LCDAlgorithm/Complexity.tex [21]) [22]
 Chapter 4.
-[23
+(Sections/CKESAlgorithm/Overview.tex)
+(Sections/CKESAlgorithm/MathematicalBasis.tex)
+(Sections/CKESAlgorithm/Algorithm.tex) [23
 
-] [24
+] [24] [25
 
-] [25] (MasterThesis_Draft.aux) ) 
+] (MasterThesis_Draft.aux) ) 
 Here is how much of TeX's memory you used:
- 15113 strings out of 493323
- 293050 string characters out of 3139064
- 442686 words of memory out of 3000000
- 18294 multiletter control sequences out of 15000+200000
+ 15125 strings out of 493323
+ 293359 string characters out of 3139064
+ 444028 words of memory out of 3000000
+ 18298 multiletter control sequences out of 15000+200000
  15898 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,16n,60p,528b,771s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-csc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MasterThesis_Draft.pdf (27 pages, 289476 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on MasterThesis_Draft.pdf (27 pages, 298239 bytes).
 PDF statistics:
  168 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

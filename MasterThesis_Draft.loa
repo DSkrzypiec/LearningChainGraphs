@@ -1,3 +1,4 @@
 \def \figurename {Algorithm}
 \contentsline {algorithm}{\numberline {1}{\ignorespaces (LCD) Skeleton Recovery}}{19}
 \contentsline {algorithm}{\numberline {2}{\ignorespaces (LCD) Complex Recovery}}{21}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces (CKES) CKES Algorithm}}{24}
