@@ -1,0 +1,62 @@
+%------------------------------------------------------------ 
+%
+%    Damian Skrzypiec
+%    12.09.2017
+%
+%    This script contains decription of CKES algorithm.
+%
+%------------------------------------------------------------ 
+
+
+
+
+\begin{algorithm}
+	\caption{(CKES) CKES Algorithm} \label{CKESAlG}
+	
+	\textbf{Input:}	Perfect conditional independence knowledge about $\mathbb{P}$.  \\
+	\textbf{Output:} Chain graph $G$
+
+	
+	\begin{algorithmic}[1]
+		\Procedure{CKESAlgorithm()}{}
+			\State $\mc{S} = \emptyset$
+	
+			\ForAll{$\mbox{node} \ C_h \in \mc{T}(G, \mc{C})$} 
+				\State	Create complete undirected graph $G_h = (C_h, E_h)$;
+				\ForAll{$\mbox{vertex pair} \ \{u, v \} \subset C_h $}
+					\If{$\exists S_{uv} \subset C_h \ u \bigCI v \mid S_{uv}$}
+						\State Delete edge $(u, v)$ from graph $G_h$;
+						\State $\mc{S} := \mc{S} \cup S_{uv}$; \Comment{Add set $S_{uv}$ to separators}
+					\EndIf
+				\EndFor
+			\EndFor			
+		
+			\State Combine all the graphs $(G_h)_{i \in \{1, \dots, H}$ into undirected graph 
+			$G^{'} = (V, \bigcup_{h = 1}^{H} E_h)$;
+			
+			\ForAll{$ \{u, v \} \in G^{'} \ \mbox{contained in more then 
+					one node of} \ \mc{T}(G, \mc{C})$}
+				\If{$ \exists C_h \ \{u, v \} \subset C_h \ \mbox{and} \ (u, v) \notin E_h$}
+					\State Delete the edge $(u, v)$ from $G^{'}$;
+				\EndIf
+			\EndFor
+			
+			\ForAll{$ \{u, v \} \in G^{'} \ \mbox{contained in more then 
+					one node of} \ \mc{T}(G, \mc{C})$}
+					
+				\State $N_{uv} := \{S \subset \mbox{ne}_{G^{'}}(u) \cup \mbox{ne}_{G^{'}}(v) \ | \ 
+									S \not\subset C_h \ \mbox{and} \ \{u, v\} \subset C_h  \}$
+									
+				\If{$u \bigCI v \mid S_{uv} \ \mbox{for some} \ S_{uv} \subset N_{uv}$}
+					\State Delete edge $(u, v)$ from graph $G^{'}$;
+					\State $\mc{S} := \mc{S} \cup S_{uv}$; \Comment{Add set $S_{uv}$ to separators}
+				\EndIf
+			\EndFor	
+			
+			\State \textbf{return:} $G^{'}$, $\mc{S}$.
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+
+
