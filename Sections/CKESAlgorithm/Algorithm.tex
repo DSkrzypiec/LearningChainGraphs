@@ -8,7 +8,14 @@
 %------------------------------------------------------------ 
 
 
+\textbf{TODO:}
+\begin{enumerate}
+	\item Define "Feasible split" for chain graphs
+	\item Define "Feasible merge" for chain graphs
+	\item Provide detailes about implementation of CKES algorithm
+\end{enumerate}
 
+Algorithm CKES presented in Algorithm \ref{CKESAlG} was introduced in \cite{CKES} in chapter $4$ in figure $4$.
 
 \begin{algorithm}
 	\caption{(CKES) CKES Algorithm} \label{CKESAlG}
@@ -21,39 +28,37 @@
 		\Procedure{CKESAlgorithm()}{}
 			\State $\mc{S} = \emptyset$
 	
-			\ForAll{$\mbox{node} \ C_h \in \mc{T}(G, \mc{C})$} 
-				\State	Create complete undirected graph $G_h = (C_h, E_h)$;
-				\ForAll{$\mbox{vertex pair} \ \{u, v \} \subset C_h $}
-					\If{$\exists S_{uv} \subset C_h \ u \bigCI v \mid S_{uv}$}
-						\State Delete edge $(u, v)$ from graph $G_h$;
-						\State $\mc{S} := \mc{S} \cup S_{uv}$; \Comment{Add set $S_{uv}$ to separators}
+			\ForAll{chain graph $G$ in equivalence class of $G$} 
+				\ForAll{orderder pair of vertex X and Y}
+					\If{$X \rightarrow Y$ is in $G$ but $X \bigCI Y \mid \mbox{Bd}_G(Y) \setminus X$}
+						\State Remove $X \rightarrow Y$ and go to line $3$; 
 					\EndIf
+
+					\If{$X - Y$ is in $G$ but $X \bigCI Y \mid \mbox{Bd}_G(Y) \setminus X$ and $X \bigCI Y \mid \mbox{Bd}_G(X) \setminus Y$}
+						\State Remove $X - Y$ and go to line $3$; 
+					\EndIf
+
+					\If{$X \rightarrow Y$ is not in $G$ but adding it to $G$ \\ 
+						\hskip\algorithmicindent \hskip\algorithmicindent  \hskip\algorithmicindent \hskip\algorithmicindent results 
+						in CG and $X \not \bigCI Y \mid \mbox{Bd}_G(Y)$}
+						\State Add $X \rightarrow Y$ to $G$ and go to line $3$; 
+					\EndIf
+
+					\If{$X - Y$ is not in $G$ but adding it to $G$ \\
+						\hskip\algorithmicindent \hskip\algorithmicindent  \hskip\algorithmicindent \hskip\algorithmicindent results 
+					in CG and $X \not \bigCI Y \mid \mbox{Bd}_G(Y)$ or 
+						$X \not \bigCI Y \mid \mbox{Bd}_G(X)$}
+						\State Add $X - Y$ to $G$ and go to line $3$; 
+					\EndIf
+
+				\State Move to another chain graph in the same equivalence class of $G$ by performing \\ 
+					\hskip\algorithmicindent \hskip\algorithmicindent  \hskip\algorithmicindent  a random number
+					of random feasible merges or feasible splits on $G$ \\ 
+					\hskip\algorithmicindent \hskip\algorithmicindent  \hskip\algorithmicindent and thereby updating $G$;
 				\EndFor
 			\EndFor			
 		
-			\State Combine all the graphs $(G_h)_{i \in \{1, \dots, H}$ into undirected graph 
-			$G^{'} = (V, \bigcup_{h = 1}^{H} E_h)$;
-			
-			\ForAll{$ \{u, v \} \in G^{'} \ \mbox{contained in more then 
-					one node of} \ \mc{T}(G, \mc{C})$}
-				\If{$ \exists C_h \ \{u, v \} \subset C_h \ \mbox{and} \ (u, v) \notin E_h$}
-					\State Delete the edge $(u, v)$ from $G^{'}$;
-				\EndIf
-			\EndFor
-			
-			\ForAll{$ \{u, v \} \in G^{'} \ \mbox{contained in more then 
-					one node of} \ \mc{T}(G, \mc{C})$}
-					
-				\State $N_{uv} := \{S \subset \mbox{ne}_{G^{'}}(u) \cup \mbox{ne}_{G^{'}}(v) \ | \ 
-									S \not\subset C_h \ \mbox{and} \ \{u, v\} \subset C_h  \}$
-									
-				\If{$u \bigCI v \mid S_{uv} \ \mbox{for some} \ S_{uv} \subset N_{uv}$}
-					\State Delete edge $(u, v)$ from graph $G^{'}$;
-					\State $\mc{S} := \mc{S} \cup S_{uv}$; \Comment{Add set $S_{uv}$ to separators}
-				\EndIf
-			\EndFor	
-			
-			\State \textbf{return:} $G^{'}$, $\mc{S}$.
+			\State \textbf{return:} G;
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
