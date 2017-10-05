@@ -8,12 +8,87 @@
 %------------------------------------------------------------ 
 
 
+In order to prove Meek's conjecture two operations on chain graphs were introduced in \cite{CKES} - feasible split and feasible merge.
+\textbf{TODO:} Add description why this operations are important.
 
-\textbf{TODO:}
-\begin{enumerate}
-	\item Define <Feasible split> for chain graph
-	\item Define <Feasible merge> for chain graph
-\end{enumerate}
+
+% -------------------------------------------------
+% 	Feasible split algorithm
+% -------------------------------------------------
+\begin{algorithm}
+	\caption{(CKES) Feasible split algorithm}
+
+	\textbf{Input:} $G$ - chain graph, $K$ block of $G$ and $L \subset K$. \\
+	\textbf{Output:} Splitting $K$ into $K \setminus L$ and $L$ in chain graph $G$.
+
+	\begin{algorithmic}[1]
+		\Procedure{Fbsplit(K, L, G)}{}
+			\State Let $L_1, \dots, L_n$ denote the maximal connected subsets of $L$ in $G$
+			\ForAll{$M \in \{ L_1, L_2, \dots, L_n\}$ }
+				\ForAll{$X, Y \in \mbox{Ne}_G(M) \cap (K \setminus L)$}
+					\State Add and edge $X - Y$ in $G$
+				\EndFor
+
+				\ForAll{$X \in \mbox{Pa}_G(M)$ and $Y \in \mbox{Ne}_G(M) \cap (K \setminus L)$}
+					\State Add an edge $X \rightarrow Y$ in $G$
+				\EndFor
+			\EndFor
+
+
+			\For{$i \in \{1, 2, \dots, n\}$ }
+				\State Let $K_i$ denote the component of $G$ such that $L_i \subset K_i$
+				\If {$K_i \setminus L_i \neq \emptyset $}
+					\State Split $K_i$ into $K_i \setminus L_i$ and $L_i$ in $G$
+				\EndIf
+			\EndFor
+		\EndProcedure
+	\end{algorithmic}
+
+\end{algorithm}
+
+
+
+
+
+
+% -------------------------------------------------
+% 	Feasible merge algorithm
+% -------------------------------------------------
+\begin{algorithm}
+	\caption{(CKES) Feasible merge algorithm}
+
+	\textbf{Input:} $G$ - chain graph, $L, R$ are blocks in $G$. \\
+	\textbf{Output:} Merged $L$ and $R$ block in $G$. 
+
+	\begin{algorithmic}[1]
+		\Procedure{Fbmerge(L, R, G)}{}
+			\State  Let $R_1, \dots, R_n$ denote the components of $G$ that are in $R$
+			\For{$i \in \{1, 2, \dots, n \}$}
+				\ForAll{$X, Y \in \mbox{Pa}_G(R_i) \cap L$}
+					\State Add an edge $X - Y$ in $G$
+				\EndFor
+
+				\ForAll{$X \in \mbox{Pa}_G(R_i) \setminus L$ and $Y \in \mbox{Pa}_G(R_i) \cap L$}
+					\State Add an edge $X \rightarrow Y$ in $G$ 
+				\EndFor
+			\EndFor
+
+			\For{$i \in \{1,2, \dots, n \}$}
+				\State Let $L_i$ denote the component of $G$ such that $L_i \subset L \cup R$ and $\mbox{Pa}_G(R_i) \cap L_i \neq \emptyset$
+				\If {$L_i \neq \emptyset$}
+					\State Merge $L_i$ and $R_i$ in $G$
+				\EndIf
+			\EndFor
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+
+
+
+
+
+
 
 \begin{thm} \textbf{(Meek's conjecture for chain graphs)} \\
 	Let $G$ and $H$ be chain graphs such that $I(H) \subset I(G)$. 

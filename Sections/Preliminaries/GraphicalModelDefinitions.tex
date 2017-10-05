@@ -54,6 +54,17 @@ The following definition of c-separation is an analogical version of d-separatio
 	%
 \end{defi}
 
+
+% ----------------------
+% Independence model, I-map 
+% ----------------------
+\begin{defi} (independence model, I-map) \\ 
+	The independence model induced by a chain graph $G$, denoted as $I(G)$, is the set of separation statements
+	$X \bigCI Y \mid Z$ that holds in $G$. A chain graph $H$ is an I-map (from independence map) of an 
+	independence model $M$ if $I(H) \subset M$. Futhermore we say that $H$ is an MI-map (minimal independence map)
+	of $M$ if after removing any edge from $H$ it is not I-map of $M$ anymore.
+\end{defi}
+
 \begin{remark}
 	\normalfont
 	In the further section of this paper we will use c-separation statement for some chain graph $G$ even if
@@ -65,8 +76,9 @@ The following definition of c-separation is an analogical version of d-separatio
 \end{remark}
 
 
+It is said that two chain graphs $G$ and $H$ are in the same Markov equivalence class if $I(G) = I(H)$. 
 The following theorem from Frydenberg's paper \cite{CGMP} provides convenient tool for testing if two given 
-chain graphs are the same in respect to Markov equivalent class.
+chain graphs are the same in respect to Markov equivalence class.
 
 % ----------------------
 % Markov equivalence of chain graphs

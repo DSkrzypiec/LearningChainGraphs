@@ -2,17 +2,17 @@
 \contentsline {chapter}{\numberline {2}Preliminaries}{11}
 \contentsline {section}{\numberline {2.1}Graph Theory Terminology}{11}
 \contentsline {section}{\numberline {2.2}Graphical Model Terminology}{13}
-\contentsline {chapter}{\numberline {3}LCD Algorithm}{15}
-\contentsline {section}{\numberline {3.1}Decomposition of chain graphs}{15}
-\contentsline {subsection}{\numberline {3.1.1}Separation Trees}{15}
-\contentsline {subsection}{\numberline {3.1.2}Construction of Separation Trees}{17}
-\contentsline {section}{\numberline {3.2}Algorithm}{17}
-\contentsline {subsection}{\numberline {3.2.1}Mathematical basis}{17}
-\contentsline {subsection}{\numberline {3.2.2}Skeleton recovery}{18}
-\contentsline {subsection}{\numberline {3.2.3}Complex recovery}{20}
-\contentsline {subsection}{\numberline {3.2.4}Algorithm complexity}{21}
-\contentsline {chapter}{\numberline {4}CKES algorithm}{23}
-\contentsline {section}{\numberline {4.1}Mathematical basis}{23}
-\contentsline {section}{\numberline {4.2}Algorithm}{23}
-\contentsline {subsection}{\numberline {4.2.1}Algorithm complexity}{23}
-\contentsline {chapter}{Bibliography}{25}
+\contentsline {chapter}{\numberline {3}LCD Algorithm}{17}
+\contentsline {section}{\numberline {3.1}Decomposition of chain graphs}{17}
+\contentsline {subsection}{\numberline {3.1.1}Separation Trees}{17}
+\contentsline {subsection}{\numberline {3.1.2}Construction of Separation Trees}{19}
+\contentsline {section}{\numberline {3.2}Algorithm}{19}
+\contentsline {subsection}{\numberline {3.2.1}Mathematical basis}{19}
+\contentsline {subsection}{\numberline {3.2.2}Skeleton recovery}{20}
+\contentsline {subsection}{\numberline {3.2.3}Complex recovery}{22}
+\contentsline {subsection}{\numberline {3.2.4}Algorithm complexity}{23}
+\contentsline {chapter}{\numberline {4}CKES Algorithm}{25}
+\contentsline {section}{\numberline {4.1}Mathematical basis}{25}
+\contentsline {section}{\numberline {4.2}Algorithm}{26}
+\contentsline {subsection}{\numberline {4.2.1}Algorithm complexity}{26}
+\contentsline {chapter}{Bibliography}{29}
