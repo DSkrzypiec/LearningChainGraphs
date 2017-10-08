@@ -6,13 +6,13 @@
 \contentsline {section}{\numberline {3.1}Decomposition of chain graphs}{17}
 \contentsline {subsection}{\numberline {3.1.1}Separation Trees}{17}
 \contentsline {subsection}{\numberline {3.1.2}Construction of Separation Trees}{19}
-\contentsline {section}{\numberline {3.2}Algorithm}{19}
-\contentsline {subsection}{\numberline {3.2.1}Mathematical basis}{19}
-\contentsline {subsection}{\numberline {3.2.2}Skeleton recovery}{20}
-\contentsline {subsection}{\numberline {3.2.3}Complex recovery}{22}
-\contentsline {subsection}{\numberline {3.2.4}Algorithm complexity}{23}
-\contentsline {chapter}{\numberline {4}CKES Algorithm}{25}
-\contentsline {section}{\numberline {4.1}Mathematical basis}{25}
-\contentsline {section}{\numberline {4.2}Algorithm}{26}
-\contentsline {subsection}{\numberline {4.2.1}Algorithm complexity}{26}
-\contentsline {chapter}{Bibliography}{29}
+\contentsline {section}{\numberline {3.2}Algorithm}{21}
+\contentsline {subsection}{\numberline {3.2.1}Mathematical basis}{21}
+\contentsline {subsection}{\numberline {3.2.2}Skeleton recovery}{22}
+\contentsline {subsection}{\numberline {3.2.3}Complex recovery}{23}
+\contentsline {subsection}{\numberline {3.2.4}Algorithm complexity}{24}
+\contentsline {chapter}{\numberline {4}CKES Algorithm}{27}
+\contentsline {section}{\numberline {4.1}Mathematical basis}{27}
+\contentsline {section}{\numberline {4.2}Algorithm}{28}
+\contentsline {subsection}{\numberline {4.2.1}Algorithm complexity}{28}
+\contentsline {chapter}{Bibliography}{31}

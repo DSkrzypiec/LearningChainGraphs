@@ -7,19 +7,156 @@
 % ----------------------------------------------
 
 
-Some info about constructing separation trees.
-
-\textbf{TODO:}
-\begin{enumerate}
-	\item Introduce junction trees
-	\item Describe Labeled Block Ordering and how to construct a separation tree within it
-	\item Present algorithm for construct Junction Tree from the data
-	\item 
-\end{enumerate}
+In this subsection we present method for construction a separation trees by using labeled block ordering.
+Concept of labeled block ordering was introduced by Roverto and La Rocca in \cite{LBO}.  
+\textbf{TODO:} extend description  
 
 
+\begin{defi} (labelled block ordering) \\ 
+	Let $G = (V, E)$ be a chain graph and $(V_i)_{i = 1}^{n}$ be a partition of a set $V$. A labelled block ordering 
+	$\mc{B}$ of chain graph $G$ is a sequence $(V_i^{l_i})_{i = 1}^{n}$ such that $l_i \in \{d, g, u\}$ with convention $V_i = V_i^{g}$.
+\end{defi}
+
+
+\begin{defi} ($\mc{B}$-consistence) \\ 
+	Let $G = (V, E)$ be a chain graph and $\mc{B} = (V_i^{l_i})_{i = 1}^{n}$ be a labelled block ordering of $G$. We say that
+	$G$ is $\mc{B}$-consistent if 
+	
+	\begin{enumerate}
+		\item every edge connecting vertices $A \in V_i$ and $B \in V_j$ is oriented from $A \rightarrow B$ for $i < j$; 
+		\item for every $i$ such that $l_i = u$, the subgraph $G_{V_i}$ is a undirected graph;
+		\item for every $i$ such that $l_i = d$, the subgraph $G_{V_i}$ is a DAG;
+		\item for every $i$ such that $l_i = g$, the subgraph $G_{V_i}$ may have both directed and undirected edges. 
+	\end{enumerate}
+\end{defi}
+
+\begin{ex} \label{ExampleLBO}
+	Let $V_1 = \{A, B, C, D, R, I \}$, $V_2 = \{G, F\}$ and $V_3 = \{H\}$. Figure \ref{fig:LBOExample} presents a $\mc{B}$-consistent labeled block ordering 
+	$\mc{B} = \{ V_1^g, V_2^u, V_3^g\}$ of chain graph from figure \ref{fig:graphForNodeTree}. 
+	
+
+	\begin{figure}
+		\centering
+		\vspace{-10pt}
+
+			
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+			% Rectangles
+			\draw[dotted] (-1, -1) -- (-1, 5) -- (3, 5) -- (3, -1) -- (-1, -1);
+			\draw[dotted] (5, 0) -- (5, 4) -- (7, 4) -- (7, 0) -- (5, 0);
+			\draw[dotted] (9, 1) -- (9, 3) -- (11, 3) -- (11, 1) -- (9, 1);
+
+
+			% Nodes
+			% First block V_1
+			\node[main node] (I) at (0, 0) {I};
+			\node[main node] (A) at (0, 2) {A};
+			\node[main node] (B) at (0, 4) {B};
+			\node[main node] (C) at (2, 4) {C};
+			\node[main node] (D) at (2, 2) {D};
+			\node[main node] (E) at (2, 0) {E};
+
+			% Second block V_2
+			\node[main node] (G) at (6, 3) {G};
+			\node[main node] (F) at (6, 1) {F};
+
+			% Third block V_3
+			\node[main node] (H) at (10, 2) {H};
+
+
+			% Edges
+			\draw (I) -- (A);
+			\draw[->] (A) -- (B);
+			\draw (B) -- (C);
+			\draw[->] (D) -- (C);
+			\draw (D) -- (E);
+
+			\draw[->] (D) -- (F);
+			\draw[->] (E) -- (F);
+			\draw (G) -- (F);
+
+			\draw[->] (F) -- (H);
+		\end{tikzpicture}
+		
+		\caption{$\mc{B}$-consistent labeled block ordering for chain graph \ref{fig:graphForNodeTree}}
+		\label{fig:LBOExample}
+	\end{figure}
+\end{ex}
 
 
 
+Ma, Xie and Geng proposed in \cite{CG} algorithm for creating separation tree with labeled block ordering.
+Using the main feature of labeled block ordering which is known order of blocks one can construct a DAG of blocks
+and then create separation trees from DAG representation of blocks. 
+
+\begin{algorithm}
+	\caption{(LCD) Separation Tree Construction with Labeled Block Ordering}
+
+	\textbf{Input:} $\mc{B}$-consistent labeled block ordering $\mc{B} = (V_i^{l_i})_{i = 1}^{k}$ of chain graph $G$ \\
+	\textbf{Output:} Separation tree $\mc{T}$ of $G$.
+
+	\begin{algorithmic}[1]
+			\State Construct a DAG $D$ with blocks $(V_i)_{i = 1}^{k}$
+			\State Construct a junction tree $\mc{T}$ by triangulating $D$
+			\State Replace each block $V_i$ in $\mc{T}$ by original vertices it contains
+			\State \textbf{return:} $\mc{T}$;
+	\end{algorithmic}
+	\label{SepLBOAlg}
+\end{algorithm}
+
+
+
+\begin{ex}
+	The following figure [...] presents execution of Algorithm \ref{SepLBOAlg} on labeled block ordering shown in
+	figure \ref{fig:LBOExample}. 
+
+	\begin{figure}
+		\centering
+		\vspace{-10pt}
+
+			
+		\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+		                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+		
+			% DAG
+			\node (V1) at (0, 0) {$V_1^g$};
+			\node (V2) at (2, 2) {$V_2^u$};
+			\node (V3) at (4, 0) {$V_3^g$};
+
+			% Boxes
+			\draw (-0.35, -0.35) -- (-0.35, 0.35) -- (0.35, 0.35) -- (0.35, -0.35) -- (-0.35, -0.35);
+			\draw (1.65, 1.65) -- (1.65, 2.35) -- (2.35, 2.35) -- (2.35, 1.65) -- (1.65, 1.65);
+			\draw (3.65, -0.35) -- (3.65, 0.35) -- (4.35, 0.35) -- (4.35, -0.35) -- (3.65, -0.35);
+
+			% DAG edges
+			\draw[->] (V1) -- (V2);
+			\draw[->] (V2) -- (V3);
+
+			% Subtitle
+			\node (subA) at (2, -2) {a)};
+		
+
+
+			% Separation tree
+			\node (AB) at (7, 1.5) {A B};
+			\node (CDE) at (7, 1) {C D E};
+			\node (IGF) at (7, 0.5) {I G F};
+			
+			\node (GF) at (10, 1) {G F};
+
+			\node (GF) at (12, 1.5) {G F};
+			\node (H)  at (12, 1) {H};
+
+
+			\draw (5.5, 0) -- (7, 2.5) -- (8.5, 0) -- (5.5, 0);
+			\draw (8, 1) -- (9.5, 1);
+			\draw (9.5, 0.65) -- (9.5, 1.35) -- (10.5, 1.35) -- (10.5, 0.65) -- (9.5, 0.65);
+
+		\end{tikzpicture}
+	\end{figure}
+
+\end{ex}
 
 

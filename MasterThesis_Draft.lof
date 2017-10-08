@@ -6,8 +6,9 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Example graph for node tree illustration}}{18}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Node tree based on graph 3.1\hbox {} and $\ensuremath {\mathcal {C}}$}}{18}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Path between $C_u$ and $C_v$ in separation tree $\ensuremath {\mathcal {T}}$}}{20}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Result of first phase of LCD algorithm}}{22}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Result of second phase of LCD algorithm}}{22}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Result of Complex Recovery Algorithm}}{23}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces $\ensuremath {\mathcal {B}}$-consistent labeled block ordering for chain graph 3.1\hbox {}}}{20}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Path between $C_u$ and $C_v$ in separation tree $\ensuremath {\mathcal {T}}$}}{21}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Result of first phase of LCD algorithm}}{23}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Result of second phase of LCD algorithm}}{23}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Result of Complex Recovery Algorithm}}{24}
 \addvspace {10\p@ }
