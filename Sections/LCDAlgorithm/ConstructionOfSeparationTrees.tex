@@ -87,9 +87,12 @@ Concept of labeled block ordering was introduced by Roverto and La Rocca in \cit
 
 
 
-Ma, Xie and Geng proposed in \cite{CG} algorithm for creating separation tree with labeled block ordering.
+Ma, Xie and Geng proposed in \cite{CG} algorithm for creating separation tree based on given labeled block ordering.
 Using the main feature of labeled block ordering which is known order of blocks one can construct a DAG of blocks
-and then create separation trees from DAG representation of blocks. 
+and then create separation trees from DAG representation of blocks. Figure \ref{fig:FromDAGToSepTree} presents
+execution of Algorithm \ref{SepLBOAlg} on labeled block ordering from previous example. On the lefthand side \textit{a)}
+of the figure DAG of blocks is presented. It is result of first line of the algorithm. On the righthand side \textit{b)}
+of the figure separation tree is presented which is built after second and third line of the algorithm.
 
 \begin{algorithm}
 	\caption{(LCD) Separation Tree Construction with Labeled Block Ordering}
@@ -107,10 +110,6 @@ and then create separation trees from DAG representation of blocks.
 \end{algorithm}
 
 
-
-\begin{ex}
-	The following figure [...] presents execution of Algorithm \ref{SepLBOAlg} on labeled block ordering shown in
-	figure \ref{fig:LBOExample}. 
 
 	\begin{figure}
 		\centering
@@ -136,6 +135,7 @@ and then create separation trees from DAG representation of blocks.
 
 			% Subtitle
 			\node (subA) at (2, -2) {a)};
+			\node (subB) at (10, -2) {b)};
 		
 
 
@@ -146,17 +146,17 @@ and then create separation trees from DAG representation of blocks.
 			
 			\node (GF) at (10, 1) {G F};
 
-			\node (GF) at (12, 1.5) {G F};
-			\node (H)  at (12, 1) {H};
+			\node (GF) at (13, 1.25) {G F};
+			\node (H)  at (13, 0.75) {H};
 
 
 			\draw (5.5, 0) -- (7, 2.5) -- (8.5, 0) -- (5.5, 0);
 			\draw (8, 1) -- (9.5, 1);
 			\draw (9.5, 0.65) -- (9.5, 1.35) -- (10.5, 1.35) -- (10.5, 0.65) -- (9.5, 0.65);
-
+			\draw (12, 0.25) -- (13, 2.15) -- (14, 0.25) -- (12, 0.25);
+			\draw (10.5, 1) -- (12.30, 1);
 		\end{tikzpicture}
+		\caption{Result of Algorithm \ref{SepLBOAlg} for LBO from \ref{fig:LBOExample}}
+		\label{fig:FromDAGToSepTree}
 	\end{figure}
-
-\end{ex}
-
 
