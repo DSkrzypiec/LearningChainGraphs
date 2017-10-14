@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.5)  10 OCT 2017 22:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.5)  14 OCT 2017 21:12
 entering extended mode
 **./MasterThesis_Draft.tex
 (MasterThesis_Draft.tex
@@ -807,37 +807,38 @@ Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@prop=\count131
 \c@thm=\count132
 \c@ex=\count133
-\c@remark=\count134
-\c@defi=\count135
+\c@lemma=\count134
+\c@remark=\count135
+\c@defi=\count136
 
 (MasterThesis_Draft.aux)
 \openout1 = `MasterThesis_Draft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
  ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count136
+\scratchcounter=\count137
 \scratchdimen=\dimen163
 \scratchbox=\box42
-\nofMPsegments=\count137
-\nofMParguments=\count138
+\nofMPsegments=\count138
+\nofMParguments=\count139
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count139
+\MPscratchCnt=\count140
 \MPscratchDim=\dimen164
-\MPnumerator=\count140
-\makeMPintoPDFobject=\count141
+\MPnumerator=\count141
+\makeMPintoPDFobject=\count142
 \everyMPtoPDFconversion=\toks45
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
@@ -884,24 +885,24 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 108.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 109.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 108.
+LaTeX Font Info:    Try loading font information for U+msa on input line 109.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 108.
+LaTeX Font Info:    Try loading font information for U+msb on input line 109.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 112--112
+Underfull \hbox (badness 10000) in paragraph at lines 113--113
 
  []
 
@@ -953,25 +954,33 @@ Chapter 3.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [17] [18]) (Sections/LCDAlgorithm/ConstructionOfSeparationTrees.tex)
-(Sections/LCDAlgorithm/AlgOverview.tex [19] [20])
-(Sections/LCDAlgorithm/MathematicalBasis.tex [21])
-(Sections/LCDAlgorithm/SkeletonRecovery.tex [22])
-(Sections/LCDAlgorithm/ComplexRecovery.tex [23])
-(Sections/LCDAlgorithm/Complexity.tex [24]) [25] [26
+(Sections/LCDAlgorithm/SeparationTreeLemma.tex [19] [20])
+(Sections/LCDAlgorithm/AlgOverview.tex)
+(Sections/LCDAlgorithm/MathematicalBasis.tex
 
-]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21]) (Sections/LCDAlgorithm/SkeletonRecovery.tex)
+(Sections/LCDAlgorithm/ComplexRecovery.tex [22] [23] [24])
+(Sections/LCDAlgorithm/Complexity.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25])
+[26]
 Chapter 4.
 (Sections/CKESAlgorithm/Overview.tex)
 (Sections/CKESAlgorithm/MathematicalBasis.tex)
-(Sections/CKESAlgorithm/Algorithm.tex [27]) [28] [29] [30
+(Sections/CKESAlgorithm/Algorithm.tex [27
+
+]) [28] [29] [30
 
 ] [31]
 (MasterThesis_Draft.aux) ) 
 Here is how much of TeX's memory you used:
- 15193 strings out of 493323
- 294308 string characters out of 3139064
- 443421 words of memory out of 3000000
- 18366 multiletter control sequences out of 15000+200000
+ 15202 strings out of 493323
+ 294460 string characters out of 3139064
+ 456632 words of memory out of 3000000
+ 18372 multiletter control sequences out of 15000+200000
  15898 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,16n,60p,528b,771s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -993,7 +1002,7 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on MasterThesis_Draft.pdf (33 pages, 313698 bytes).
+Output written on MasterThesis_Draft.pdf (33 pages, 315886 bytes).
 PDF statistics:
  187 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

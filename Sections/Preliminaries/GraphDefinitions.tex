@@ -166,8 +166,8 @@ and with only directed edges is called a \textit{directed acyclic graph} (DAG).
 \end{defi}
 
 
-A section with two head-terminals is called \textit{head-to-head} section. Otherwise the section is called 
-\textit{non head-to-head}. For a given set of vertices $S \subset V$ in graph $G$ and section $\sigma = (v_i, \dots, v_j)$ we say that section is hit by $S$ if $\left\lbrace v_i , \dots, v_j \right\rbrace \cap S \neq \emptyset$. Otherwise we say that section $\sigma$ is outside set $S$.
+A section with two head-terminals is called \textit{collider} section. Otherwise the section is called 
+\textit{non collider}. For a given set of vertices $S \subset V$ in graph $G$ and section $\sigma = (v_i, \dots, v_j)$ we say that section is hit by $S$ if $\left\lbrace v_i , \dots, v_j \right\rbrace \cap S \neq \emptyset$. Otherwise we say that section $\sigma$ is outside set $S$.
 
 
 
@@ -178,12 +178,30 @@ A section with two head-terminals is called \textit{head-to-head} section. Other
 	A route $\rho$ in graph $G = (V, E)$ is blocked by a subset $S \subset V$ of vertices if and only if there 				exists a section $\sigma$ of route $\rho$ such that one of the following conditions is satisfied.
 	
 	\begin{enumerate}
-		\item Section $\sigma$ is head-to-head with respect to $\rho$ and $\sigma$ is outside of $S$.
-		\item Section $\sigma$ is non head-to-head with respect to $\rho$ and $\sigma$ is hit by $S$.
+		\item Section $\sigma$ is a collider section with respect to $\rho$ and $\sigma$ is outside of $S$.
+		\item Section $\sigma$ is non collider section with respect to $\rho$ and $\sigma$ is hit by $S$.
 	\end{enumerate}
 	
 \end{defi}
 
+
+
+% ----------------------
+%  Intervention lemmma 
+% ----------------------
+
+\begin{lemma}
+	Let $G = (V, E)$ be a chain graph, $\rho$ be a route from vertex $u$ to vertex $v$ in $G$ and $W$ denote set of vertices of route $\rho$.
+	If route $\rho$ is blocked by $S \subset V$ in $G$ such that $W \subset S$ then route $\rho$ is blocked by $W$ and any vertez set contaning $W$. 
+\end{lemma}
+
+\begin{prf}
+	If route $\rho$ is blocked by $S$ then there is a non collider section of $\rho$ which is hit by $S$ or 
+	there is a collider section of $\rho$ which is outside of $S$. Any collider section of $\rho$ cannot be outside of $S$ because $W \subset S$.
+	With assumption that $W \subset S$ we know that every non collider section is hit by $S$ and therefore is hit also by $W$ and 
+	any other vertex set contaning set $W$. 
+	\QED
+\end{prf}
 
 
 \begin{ex} (Graph definitions) \\
