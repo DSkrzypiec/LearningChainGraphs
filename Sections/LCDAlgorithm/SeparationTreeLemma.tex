@@ -17,7 +17,34 @@
 \end{lemma}
 
 \begin{prf}
-	There will be some proof.
+	We can assume that route $\rho$ is of the form 
+	\begin{equation}
+		\rho = \left( 
+				\overbrace{v^1_1, v^1_2, \dots, v^1_k}^{V_1(S) \setminus S}, 
+				\underbrace{s_1, \dots, s_n}_{S}, 
+				\overbrace{v^2_1, v^2_2, \dots v^2_m}^{V_2(S) \setminus S}  
+			\right) 
+	\end{equation}
+	Otherwise every vertex of $\rho$ would be in either $V_1(S) \setminus S$ or in $V_2(S) \setminus S$. That would imply existance of
+	two adjacent vertices $v \in V_1(S) \setminus S$ and $w \in V_2(S) \setminus S$ and further that would contradictory to condition from separation 
+	tree definition $\cSep{V_1(S) \setminus S}{V_2(S) \setminus S}{S}{G}$.
+	
+	Let $\psi$ be the subroute of the vertices $(v^1_k, s_1, \dots, s_n, v^2_1)$ and $W_{\psi}$ be the vertex set of $\psi$ with vertices $\{v^1_k, v^2_1\}$
+	excluded. Since $W_{\psi} \subset S$ there is at least one non collider section of route $\psi$ and, from lemma \ref{lemma1}, every non collider section on $\psi$
+	is hit by $W_{\psi}$. Therefore route $\rho$ is blocked by set $S$ or any set contaning $S$ when $\psi$ is part of non collider section of $\rho$.
+	To complete proof we have to show that thesis is satisfied in case when subroute $\psi$ is part of collider section of route $\rho$.
+	From now on we can assume that route $\rho$ has collider section $\sigma$ of the form
+	
+	\begin{equation}
+		\sigma = v^1_i \rightarrow v^1_{i+1} - \dots - v^1_k - s_1 - \dots - s_n - v^2_1 - \dots v^2_j \leftarrow v^2_{j+1} 
+	\end{equation}
+	for some $i \in \{1, 2, \dots k \}$ and $j \in \{ 1, 2, \dots, m\}$. We have to consider few corner cases. 
+	In case when $v^1_{i} \in S$ then exists a non collider section of $\rho$ which is blocked by $S$ or any set contaning $S$. 
+	In case when $v^1_{i} \in V_1(S) \setminus S$ and $v^2_{j+1} \in S$ then exists a non collider section of $\rho$ which is blocked by $S$ or any set contaning $S$.
+	In case when $v^2_{j+1} \in V_1(S) \setminus S$ then we can consider a non collider section of route $\rho$ which starts from $v^2_{j+1}$.
+	Now it is sufficient to consider regular case when $v^1_{i} \in V_1(S) \setminus S$ and $v^2_{j+1} \in V_2(S) \setminus S$. This case cannot occure
+	in separation tree because that would imply $v^1_{i} \not \bigCI v^2_{j+1} \mid S$ which is contradictory to condition from separation tree definition
+	$\cSep{V_1(S) \setminus S}{V_2(S) \setminus S}{S}{G}$. 
 	\QED
 \end{prf}
 

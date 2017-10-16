@@ -7,9 +7,9 @@
 \contentsline {subsection}{\numberline {3.1.1}Separation Trees}{17}
 \contentsline {subsection}{\numberline {3.1.2}Construction of Separation Trees}{19}
 \contentsline {section}{\numberline {3.2}Algorithm}{21}
-\contentsline {subsection}{\numberline {3.2.1}Mathematical basis}{21}
+\contentsline {subsection}{\numberline {3.2.1}Mathematical basis}{22}
 \contentsline {subsection}{\numberline {3.2.2}Skeleton recovery}{22}
-\contentsline {subsection}{\numberline {3.2.3}Complex recovery}{22}
+\contentsline {subsection}{\numberline {3.2.3}Complex recovery}{24}
 \contentsline {subsection}{\numberline {3.2.4}Algorithm complexity}{25}
 \contentsline {chapter}{\numberline {4}CKES Algorithm}{27}
 \contentsline {section}{\numberline {4.1}Mathematical basis}{27}

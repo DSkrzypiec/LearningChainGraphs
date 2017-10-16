@@ -1,7 +1,7 @@
 \def \figurename {Algorithm}
 \contentsline {algorithm}{\numberline {1}{\ignorespaces (LCD) Separation Tree Construction with Labeled Block Ordering}}{20}
 \contentsline {algorithm}{\numberline {2}{\ignorespaces (LCD) Skeleton Recovery}}{23}
-\contentsline {algorithm}{\numberline {3}{\ignorespaces (LCD) Complex Recovery}}{24}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces (LCD) Complex Recovery}}{25}
 \contentsline {algorithm}{\numberline {4}{\ignorespaces (CKES) Feasible split algorithm}}{27}
 \contentsline {algorithm}{\numberline {5}{\ignorespaces (CKES) Feasible merge algorithm}}{28}
 \contentsline {algorithm}{\numberline {6}{\ignorespaces (CKES) CKES Algorithm}}{29}

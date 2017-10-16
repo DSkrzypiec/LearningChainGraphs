@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.5)  14 OCT 2017 21:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.5)  17 OCT 2017 00:26
 entering extended mode
 **./MasterThesis_Draft.tex
 (MasterThesis_Draft.tex
@@ -956,17 +956,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [17] [18]) (Sections/LCDAlgorithm/ConstructionOfSeparationTrees.tex)
 (Sections/LCDAlgorithm/SeparationTreeLemma.tex [19] [20])
 (Sections/LCDAlgorithm/AlgOverview.tex)
-(Sections/LCDAlgorithm/MathematicalBasis.tex
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[21]) (Sections/LCDAlgorithm/SkeletonRecovery.tex)
-(Sections/LCDAlgorithm/ComplexRecovery.tex [22] [23] [24])
-(Sections/LCDAlgorithm/Complexity.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25])
-[26]
+(Sections/LCDAlgorithm/MathematicalBasis.tex [21])
+(Sections/LCDAlgorithm/SkeletonRecovery.tex [22] [23])
+(Sections/LCDAlgorithm/ComplexRecovery.tex [24])
+(Sections/LCDAlgorithm/Complexity.tex [25]) [26]
 Chapter 4.
 (Sections/CKESAlgorithm/Overview.tex)
 (Sections/CKESAlgorithm/MathematicalBasis.tex)
@@ -977,10 +970,10 @@ Chapter 4.
 ] [31]
 (MasterThesis_Draft.aux) ) 
 Here is how much of TeX's memory you used:
- 15202 strings out of 493323
- 294460 string characters out of 3139064
- 456632 words of memory out of 3000000
- 18372 multiletter control sequences out of 15000+200000
+ 15203 strings out of 493323
+ 294468 string characters out of 3139064
+ 441666 words of memory out of 3000000
+ 18373 multiletter control sequences out of 15000+200000
  15898 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,16n,60p,528b,771s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -994,17 +987,18 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/symbols/msbm10.pfb>
-Output written on MasterThesis_Draft.pdf (33 pages, 315886 bytes).
+m/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on MasterThesis_Draft.pdf (33 pages, 328771 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
+ 191 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
