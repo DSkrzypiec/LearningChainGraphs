@@ -11,7 +11,7 @@
 
 \begin{thm} \label{LCDSkeletonThm} (\cite{CG}, chapter 3.1, Theorem 3) \\ 
 	Let $\mc{T}(G, \mc{C})$ be a separation tree for chain graph $G$. Then vertices $u$ and $v$ are 
-	c-separated by some set $S_{uv} \subset V$ in $G$ if and only if one the following conditions hold:
+	c-separated by some set $S_{uv} \subset V$ in $G$ $(*)$ if and only if one the following conditions hold:
 	
 	\begin{enumerate}
 		\item Vertices $u$ and $v$ are not contained together in any node $C$ of $\mc{T}(G, \mc{C})$,
@@ -27,7 +27,22 @@
 \end{thm}
 
 \begin{prf}
-	Here will be proof of the theorem.
+	At first we will prove the sufficiency of conditions $(1)$, $(2)$ and $(3)$. \\ 
+
+	$(1) \Rightarrow (*)$. \\
+	In this case we assume that vertices $u \in C_i$ and $v \in C_j$ are in different nodes of separation tree $\mc{T}(G, \mc{C})$.
+	From lemma \ref{lemma9} we know that every route between vertices $u$ and $v$ is blocked by any separator in separation tree
+	$\mc{T}(G, \mc{C})$ between nodes $C_i$ and $C_j$. Therefore there is at least one set which c-separates $u$ and $v$ in $G$.
+
+	Implications $(2) \Rightarrow (*)$ and $(3) \Rightarrow (*)$ are satisfied by definition of c-separation. \\ 
+
+	$(*) \Rightarrow (1) \vee (2) \vee (3) $. \\
+	Now we assume that there is some set $S \subset V$ which c-separates vertices $u$ and $v$ in graph $G$.
+	We can also assume that vertices $u$ and $v$ are contained in the same node of separation tree. Otherwise
+	using lemma \ref{lemma9} condition $(1)$ is satisfied. When $u$ and $v$ are contained in the same node $C \in \mc{C}$ we
+	have to consider two cases. The first case is when vertices $u$ and $v$ are contained in the same separator connected to 
+	node $C$. The second case is otherwise. The first case is proven by using lemma \ref{lemma11}.
+	\textbf{TODO:} prove the second case.
 	\QED
 \end{prf}
 
