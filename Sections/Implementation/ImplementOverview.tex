@@ -1,0 +1,31 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	02.11.2017	
+% 	This script contains overview of impelementation
+% 	of cglearn package.	
+%
+% ----------------------------------------------
+
+
+In this project we also provide an implementation of LCD algorithm. We make the implementation available in R through package called \textit{cglearn}.
+R is broadly used, both in academia and in business, open-source statistical programming language. The name of package is short for chain graph structure learning.
+It is also analogy to the R package \textit{bnlearn} for learning bayesian networks.
+The \textit{cglearn} package could be installed through Github and soon will be available on CRAN. Details about package installation are in subsection \ref{subsec:PackageInstall}.
+
+The package provides functionality for learning chain graphs structure within LCD algorithm, visualization results and performe conditional independence analysis for given 
+data set. The functionality is further described in subsection \ref{subsec:PackageFunc}.
+
+It is worth to mention that current implementation of LCD algorithm provides functionality of learning chain graphs only for categorical random variables.
+The major part of package was implemented in C++ and injected in R using Rcpp package. It was done in purpose of maximizing performance of algorithm. 
+In the forseeable future we are planning to add feature of easily building separation trees and extend LCD algorithm for gaussian random variables.
+
+
+
+
+
+
+
+
+
+

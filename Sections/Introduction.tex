@@ -5,8 +5,98 @@
 % ---------------------------------------
 
 
-The purpose of this project is to present algorithms for learning conditional independence structure of joint probability distributions represented by chain graphs. This is a special case of learning probabilistic graphical models which provides convenient representation of factorisation probability distribution using graphs.
-Two most common classes of probabilistic graphical models (PGMs) are Bayesian Networks where PGM is represented by directed acyclic graph and Markov Fields where PGM is represented by undirected graph. Chain graphs is a class of graphs that does not contains cycles (formal definition in \ref{chainGraphDef}). It contains both directed and undirected edges in graph representation hence it is natural generalization of Bayesian Networks and Markov Fields.
-Such a generalization was needed because of limitation of Markov Fields and Bayesian Networks. An edge in a Markov Field model represent that there is a correlation between two random variables but it does not specify what type of correlation
-it is. On the other hand Bayesian Network models contains only directed edges which represents only cause-effect relationships without possibility of existence of mutual correlation between two random variables.
-[To be continued...]
+The purpose of this project is to present algorithms for learning conditional independence structure of joint probability distributions represented by chain graphs. 
+This is a special case of learning probabilistic graphical models which provides convenient representation of factorisation probability distribution using graphs.
+Two most common classes of probabilistic graphical models (PGMs) are Bayesian networks and Markov random fields. 
+Bayesian networks are PGMs presented by directed acyclic graphs where Markov random fields are described by undirected graphs.
+
+Chain graphs is a class of graphs that does not contains cycles (formal definition in \ref{chainGraphDef}). 
+Chain graphs as class of probabilistic graphical models was introduced in 1984 by Lauritzen and Wermuth. 
+It contains both directed and undirected edges in graph representation hence it is natural generalization of Bayesian networks and Markov random fields.
+Such a generalization was needed because of limitation of those two classes of PGMs. An edge in a Markov field model represent that there is a correlation 
+between two random variables but it does not specify what type of correlation it is. On the other hand Bayesian network models contains only directed edges which represents 
+only cause and effect relationships without possibility of existence of mutual correlation between two random variables.
+
+The result of any probabilistic graphical model is a graph $G = (V, E)$ where vertices in set $V$ corresponds to random variables and edges in set $E$ presents
+some kind of conditional correlation between random variables. This is very convenient tool for data analysis in real-world applications. 
+Nowadays companies accumulate huge amount of data.
+Very often major part of this data is noise or it is useless in further phase of modelling. 
+Graphical models helps us discover idependence structure in our data set and therefore
+select appropriate subset. One of the greatest advantages of PGMs is easy of intepretability. 
+Main disadvantage of most of PGMs is computational complexity. It is either impossible or
+it takes very long time to build PGM for data set with significant number of variables.
+Main algorithm described in this project focus on lower computational complexity of building chain 
+graph through building smaller chain graphs and joining them in the right way.
+
+
+Due to fact that Bayesian networks model only asymmetric casual relationships between variables and Markov random fields model
+only symmetric casual relationships beetwen variables one can face the problem when using one of those models would be inappropriate.
+The figure \ref{fig:bayesianNetEx1} presents Bayesian network which describes relationships beteen variables such as \textit{Traffic Jam, Car Accident, Sirens, Bad Weather}
+and \textit{Rush Hours}. In particular this model presents that traffic jams can be caused by some combination of factors like bad weather, car accidents and 
+rush hours. It is possible that also traffic jams could cause car accidents. During traffic jams some of drivers could be frustrated
+and their behaviour could casue car accidents. This type of correlation cannot be grasped by Bayesian networks but it can be done by using chain graphs.
+The figure \ref{fig:chainGraphEx1} presents possible chain graph representation of the same data which was used for Bayesian network presented
+in the figure \ref{fig:bayesianNetEx1}.
+
+ 
+\begin{figure}
+	\centering
+	\vspace{-10pt}
+		
+	\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+			    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+	
+		% DAG
+		\node[draw, align=center, shape=circle, minimum size=2cm] (BW) at (0, 0) {Bad \\ Weather};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (RH) at (4, 0) {Rush \\ Hours};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (TJ) at (4, 4) {Traffic \\ Jam};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (CA) at (8, 4) {Car \\ Accident};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (S) at (8, 0) {Sirens};
+
+		% DAG edges
+		\draw[->] (BW) -- (TJ);
+		\draw[->] (RH) -- (TJ);
+		\draw[->] (CA) -- (TJ);
+		\draw[->] (CA) -- (S);
+
+	\end{tikzpicture}
+	\caption{Example of Bayesian network}
+	\label{fig:bayesianNetEx1}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\vspace{-10pt}
+		
+	\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+			    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+	
+		% DAG
+		\node[draw, align=center, shape=circle, minimum size=2cm] (BW) at (0, 0) {Bad \\ Weather};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (RH) at (4, 0) {Rush \\ Hours};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (TJ) at (4, 4) {Traffic \\  Jam};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (CA) at (8, 4) {Car \\ Accident};
+		\node[draw, align=center, shape=circle, minimum size=2cm] (S) at (8, 0) {Sirens};
+
+		% DAG edges
+		\draw[->] (BW) -- (TJ);
+		\draw[->] (RH) -- (TJ);
+		\draw (TJ) -- (CA);
+		\draw[->] (CA) -- (S);
+
+	\end{tikzpicture}
+	\caption{Example of chain graph}
+	\label{fig:chainGraphEx1}
+\end{figure}
+
+\textbf{TODO:} Simply describe conditional independence in graph. 
+
+Rest of the paper is organized as follows. In chapter 2 we provide basic definitions from graph theory and graphical models.
+In the first subsection of chapter 3 we introduce concept of separation trees. In the second subsection of chapter 3 we
+describe LCD algorithm. We start from presenting mathematical basis for the algorithm. Next we illustrate both of phases of the algorithm.
+At the end of chapter 3 we estimate computational complexity of LCD algorithm. 
+In chapter 4 we shortly specify the implementation of LCD algorithm and present functionality of \textit{cglearn} package. 
+In chapter 5 we present results of using LCD algorithm on some dataset.
+
+

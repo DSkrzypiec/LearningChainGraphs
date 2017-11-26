@@ -6,8 +6,9 @@
 %
 % ----------------------------------------------
 
-[...] Some introduction.
-
+In this subsection we introduce mathematical basis for correctness of LCD algorithm.
+Theorem \ref{LCDSkeletonThm} provide charaterization of c-separation condition in the separation trees. 
+Based on the theorem \ref{LCDSkeletonThm} skeleton recovery phase of LCD algorithm was constructed. 
 
 \begin{thm} \label{LCDSkeletonThm} (\cite{CG}, chapter 3.1, Theorem 3) \\ 
 	Let $\mc{T}(G, \mc{C})$ be a separation tree for chain graph $G$. Then vertices $u$ and $v$ are 
@@ -47,13 +48,16 @@
 \end{prf}
 
  
-\begin{prop} \label{LCDComplexProp} (\cite{CG}, chapter 3.1, Proposition 4) \\
+The following theorem \ref{LCDComplexProp} helps to narrow down number of possibilities to verify 
+in the complex recovery phase of the LCD algorithm. 
+
+\begin{thm} \label{LCDComplexProp} (\cite{CG}, chapter 3.1, Proposition 4) \\
 	Let $G$ be a chain graph and $\mc{T}(G, \mc{C})$ be a separation tree of $G$. For any complex $\mc{K}$ in $G$, there
 	exists some node tree $C$ of $\mc{T}(G, \mc{C})$ such that $\mc{K} \subset C$.
-\end{prop}
+\end{thm}
 
 \begin{prf} 
-	Let suppose oposite. Let $\mc{K} = (u, w_1, \dots, w_n, v)$ be a complex in chain graph $G$ such that 
+	Let suppose opposite. Let $\mc{K} = (u, w_1, \dots, w_n, v)$ be a complex in chain graph $G$ such that 
 	for any node $C$ in separation tree $\mc{T}(G, \mc{C})$ vertex $u$ and $v$ are not contained together in $C$.
 	Now let suppose that $u \in C_u$ and $v \in C_v$ where $C_u$ and $C_v$ are nodes of the separation tree.
 

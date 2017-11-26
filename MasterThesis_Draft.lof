@@ -1,4 +1,6 @@
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Example of Bayesian network}}{10}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Example of chain graph}}{10}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Immorality in chain graph}}{12}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Example graph}}{13}
@@ -9,7 +11,7 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces $\ensuremath {\mathcal {B}}$-consistent labeled block ordering for chain graph 3.1\hbox {}}}{20}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Result of Algorithm 1\hbox {} for LBO from 3.3\hbox {}}}{20}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Path between $C_u$ and $C_v$ in separation tree $\ensuremath {\mathcal {T}}$}}{23}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Result of first phase of LCD algorithm}}{24}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Result of first phase of LCD algorithm}}{25}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Result of second phase of LCD algorithm}}{25}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Result of Complex Recovery Algorithm}}{26}
 \addvspace {10\p@ }

@@ -6,12 +6,16 @@
 %
 % ----------------------------------------------
 
-LCD algorithm is short for \textit{Learning of Chain graphs via Decomposition} algorithm. The algorithm was introduced by Ma, Xie and Geng in paper \textit{Structural Learning of Chain Graphs via Decomposition} \cite{CG}. LCD algorithm returns 
+LCD algorithm is short for \textit{Learning of Chain graphs via Decomposition} algorithm. The algorithm was introduced by Ma, Xie and Geng in paper 
+\textit{Structural Learning of Chain Graphs via Decomposition} \cite{CG}. LCD algorithm returns 
 representative chain graph of it's Markov equivalence class, because even with perfect knowledge of data probability
 distribution any two chain graph structures within the same Markov equivalence class are indistinguishable. (TODO: Add ref)
 The algorithm is composed of two steps - recovering skeleton of chain graph and the second is recovering complexes. This
 idea is backed up by proposition \ref{markovEquivThm}. 
-The main idea of skeleton recovery is to decompose set of variables into smaller sets, determine independence structure there and join results in a correct way. To decompose problem into smaller subproblems concept of 
-separation trees is being used.
+The main idea of skeleton recovery is to decompose set of variables into smaller sets, determine independence structure there and join results in a correct way. 
+To decompose problem into smaller subproblems concept of separation trees is being used.
+The LCD algorithm required assumption about faithfulness of a probability distribution to some chain graph. This assumption is not very restrictive, because Jose Pena proved that the
+set of strictly positive probability distributions that are not faithful to some chain graph G has zero Lebesgue measure. Pena proved it for dicrete case in $2009$ in \cite{FaithDicr}
+(theorem $5$) and later in $2011$ for gaussian case in \cite{FaithGauss} (theorem $4.2$).
 
 

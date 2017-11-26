@@ -64,29 +64,17 @@
 % Dane magistranta:
 
 \author{Damian Skrzypiec}
-
 \nralbumu{320335}
-
 \title{Structure Learning Algorithms for Chain Graphs}
 
 \tytulang{Algorytmy uczenia strukturalnego dla grafów łańcuchowych}
-
-%kierunek: Matematyka, Informatyka, ...
 \kierunek{Mathematics}
-
-
-% Praca wykonana pod kierunkiem:
-% (podać tytuł/stopień imię i nazwisko opiekuna
-% Instytut
-% ew. Wydział ew. Uczelnia (jeżeli nie MIM UW))
 \opiekun{John Noble, PhD.\\
   Institute of Applied Mathematics and Mechanics\\
   }
 
-% miesiąc i~rok:
-\date{April 2017}
+\date{December 2017}
 
-%Podać dziedzinę wg klasyfikacji Socrates-Erasmus:
 \dziedzina{ 
 11.2 Statistics\\ 
 }
@@ -109,7 +97,11 @@
 \maketitle
 
 \begin{abstract}
-  In this place will be abstract of this project.
+	In this paper we present an algorithm for structural learning of chain graphs. Chain graphs 
+	are class of probabilistic graphical models which can be described as generalization of Bayesian networks and 
+	Markov random fields. We discuss in details LCD algorithm which is an algorithm for structural learning of
+	chain graphs based on idea of decomposition chain graphs via separation trees. We also provide implementation
+	of LCD algorithm available via R package \textit{cglearn}. 
 \end{abstract}
 
 \tableofcontents
@@ -144,8 +136,9 @@
 			
 		\subsection{Construction of Separation Trees} \label{subsec:SepTreesConstruct}
 			\input{Sections/LCDAlgorithm/ConstructionOfSeparationTrees}			
-			
-		\input{Sections/LCDAlgorithm/SeparationTreeLemma}
+
+		\subsection{Separation Tree Lemmas}			
+			\input{Sections/LCDAlgorithm/SeparationTreeLemma}
 		
 	\section{Algorithm}
 		\input{Sections/LCDAlgorithm/AlgOverview}
@@ -163,7 +156,16 @@
 			\input{Sections/LCDAlgorithm/Complexity}
 			
 \chapter{Implementation}
+	\input{Sections/Implementation/ImplementOverview}
 
+	\section{Package Functionality}
+		\input{Sections/Implementation/PackageFunc}
+
+	\section{Package Installation} \label{subsec:PackageInstall}
+		\input{Sections/Implementation/PackageInstall}
+		
+	% \section{Technicals} - optional
+	
 \chapter{Results}
 
 \chapter{Summary}
@@ -188,6 +190,10 @@
 
 	\bibitem{CKES} J. Nielsen, J. Pena and D. Sonntag, \textit{An inclusion optimal algorithm for chain graph structure learning}, Proceedings of the Seventeenth International
 		Conference on Artificial Intelligence and Statistics, PMLR (2014) 33:778-786
+
+	\bibitem{FaithDicr} J. Pena, \textit{Faithfulness in Chain Graphs: The Discrete Case}, International Journal of Approximate Reasoning 50 (2009) 1306-1313
+
+	\bibitem{FaithGauss} J. Pena, \textit{Faithfulness in Cahin Graphs: The Gaussian Case}, Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics (2011) 588-599
 
 	\bibitem{LBO} A. Roverto and L. La Rocca, \textit{On Block Ordering of Variables in Graphical Modelling}, Scandinavian Journal of Statistics 33 (2006) 65-81
 

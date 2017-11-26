@@ -8,7 +8,8 @@
 %
 %-------------------------------------------------- 
 
-\textbf{TODO:} Add some description of the following lemma.
+The following lemma says that every route between two vertices that are separated by some separator in the separation tree
+is blocked by this separator. This lemma will be used in the proof of theorem \ref{LCDSkeletonThm}. 
 
 \begin{lemma} \label{lemma9}
 	Let $G = (V, E)$ be a chain graph, $\mc{T}(G, \mc{C})$ be a separation tree and $S$ be a separator of $\mc{T}(G, \mc{C})$.
@@ -45,6 +46,43 @@
 	Now it is sufficient to consider regular case when $v^1_{i} \in V_1(S) \setminus S$ and $v^2_{j+1} \in V_2(S) \setminus S$. This case cannot occure
 	in separation tree because that would imply $v^1_{i} \not \bigCI v^2_{j+1} \mid S$ which is contradictory to condition from separation tree definition
 	$\cSep{V_1(S) \setminus S}{V_2(S) \setminus S}{S}{G}$. 
+	\QED
+\end{prf}
+
+
+\begin{lemma} \label{lemma10}
+	Let $G = (V, E)$ be a chain graph, $\mc{T}(G, \mc{C})$ be a separation tree of chain graph $G$ and $u, v \in V$ are non adjacent vertices in $G$.
+	If $\rho$ is a route from $u$ to $v$ is not contained in $\mbox{An}(u) \cup  \mbox{An}(v)$, then $\rho$ is blocked by any subset of
+	$\mbox{An}(u) \cup  \mbox{An}(v)$.
+\end{lemma}
+
+\begin{prf}
+	Since route $\rho$ is not contained in set $\mbox{An}(u) \cup  \mbox{An}(v)$ there exists vertices $s_1, s_2, t_1, t_2$ such that 
+	route $\rho$ is of the form
+
+	\begin{equation}
+		\begin{cases}
+			\rho = \left(u, \dots, s_1, s_2, \dots, t_1, t_2, \dots, v \right)   \\ 
+			\{ s_1, t_2 \} \in \mbox{An}(u) \cup  \mbox{An}(v)  \\ 
+			\{ s_2, t_1 \} \cap \left(\mbox{An}(u) \cup  \mbox{An}(v) \right) = \emptyset	
+		\end{cases}
+	\end{equation}
+	In this case we have $s_1 \rightarrow s_2$ and $t_1 \leftarrow t_2$, because otherwise $s_2$ or $t_1$ would be in set 
+	$\mbox{An}(u) \cup  \mbox{An}(v)$. Therefore there exists at least one collider section between vertices $s_1$ and $t_2$ 
+	on route $\rho$ that is outside of $\mbox{An}(u) \cup  \mbox{An}(v)$. Thus route $\rho$ is blocked by 
+	any subset of $\mbox{An}(u) \cup  \mbox{An}(v)$.
+	\QED
+\end{prf}
+
+
+\begin{lemma} \label{lemma12}
+	Let $G = (V, E)$ be a chain graph, $\mc{T}(G, \mc{C})$ be a separation tree of chain graph $G$
+	and $u, v$ are two adjacent vertices. Then there exists node $C \in \mc{T}(G, \mc{C})$ which contains both vertices $u$ and $v$.
+\end{lemma}
+
+\begin{prf}
+	Let suppose opposite. In this case there exists separator $K$ in $\mc{T}(G), \mc{C}$ such that $u \in V_1(K)$ and $v \in V_2(K)$.
+	And by separation tree definition this implies that $\cSep{u}{v}{K}{G}$ and it is not possible becasue $u$ and $v$ are adjacent vertices.
 	\QED
 \end{prf}
 

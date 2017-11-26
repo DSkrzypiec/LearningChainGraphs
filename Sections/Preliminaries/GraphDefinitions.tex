@@ -72,6 +72,9 @@ $E$ is default notation for set of graph's edges.
 	$$ (v_{i-1}, v_i) \in E \ \  \mbox{or} \ \ (v_i, v_{i-1}) \in E$$
 	for $i = 1, \dots, k$. The vertices $v_0$ and $v_k$ are called \textit{terminals}. A route is called descending
 	if $(v_{i-1}, v_i) \in E$ for $i = 1, \dots, k$. Descending route from $u$ to $v$ is marked as $u \mapsto v$. 
+	A route is called non descending if $(v_i, v_{i-1}) \in E$ or $(v_i, v_{i-1}) \in E \ \wedge \ (v_{i-1}, v_i) \in E$ for 
+	$i = 1, \dots, k$. The subset of all vertices $v \in V$ which can be connected by a non descending route with vertex $u$ is
+	denoted by $\mbox{An}(u)$.
 \end{defi}
 
 
