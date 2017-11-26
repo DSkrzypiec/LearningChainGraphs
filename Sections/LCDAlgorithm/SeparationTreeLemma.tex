@@ -98,7 +98,32 @@ is blocked by this separator. This lemma will be used in the proof of theorem \r
 \end{lemma}
 
 \begin{prf}
-	There will be some proof of this lemma.
+	We show that the following set of vertices 
+	\begin{equation} \label{eq:S}
+		S = \left( \mbox{An}(u) \cup \mbox{An}(v) \right) \cap \left( C_i \setminus \{ u, v\} \right)
+	\end{equation} 
+	is the c-separator of vertices $u$ and $v$. Let $\rho$ be a route from $u$ to $v$ in graph $G$. If route $\rho$ is not contained in 
+	set $\mbox{An}(u) \cup \mbox{An}(v)$ then $\rho$ is blocked by $S$, by lemma \ref{lemma10}. Therefore from now on we can assume that
+	route $\rho$ is contained in set $\mbox{An}(u) \cup \mbox{An}(v)$. To show that $S$ is c-separator we consider the following cases of
+	first section of route $\rho$ containing vertex $u$.
+
+	\begin{enumerate}
+		\item $u - s_1 - \dots - s_n \leftarrow x$ where $x \neq v$ and $x \in C_i$.
+			In this case $x \in \mbox{An}(u)$ and $x\in C_i$, therefore $x \in S$. That implies
+			existance of non collider section containing $x$ which is hit by $S$. Thus $u$ and $v$ 
+			are c-separated by $S$.
+
+		\item $u - s_1 - \dots - s_n \rightarrow x - t_1 - \dots - t_m \rightarrow y$ where $x \neq v$ and $x \in C_i$.
+			In this case $x \in \mbox{An}(u) \cup \mbox{An}(v)$ but $x \notin \mbox{An}(u)$, thus $x \in \mbox{An}(v)$.
+			Because of $x \in C_i$ and $x \in \mbox{An}(v)$ we know that $x \in S$. Similar to the previous case
+			vertices $u$ and $v$ are c-separated because there is at least one non collider section of route $\rho$ 
+			containing $x$ which is hit by $S$.
+
+		\item $u - s_1 - \dots - s_n \rightarrow x - t_1 - \dots - t_m \leftarrow y$ where $x \neq v$ and $x,y \in C_i$.
+
+	\end{enumerate}
+	
+	
 \end{prf}
 
 
