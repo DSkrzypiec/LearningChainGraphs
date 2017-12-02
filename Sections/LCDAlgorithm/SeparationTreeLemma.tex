@@ -108,18 +108,55 @@ is blocked by this separator. This lemma will be used in the proof of theorem \r
 	first section of route $\rho$ containing vertex $u$.
 
 	\begin{enumerate}
-		\item $u - s_1 - \dots - s_n \leftarrow x$ where $x \neq v$ and $x \in C_i$.
+		\item $u - s_1 - \dots - s_n \leftarrow x$ where $x \neq v$ and $x \in C_i$. \\ 
 			In this case $x \in \mbox{An}(u)$ and $x\in C_i$, therefore $x \in S$. That implies
 			existance of non collider section containing $x$ which is hit by $S$. Thus $u$ and $v$ 
 			are c-separated by $S$.
 
-		\item $u - s_1 - \dots - s_n \rightarrow x - t_1 - \dots - t_m \rightarrow y$ where $x \neq v$ and $x \in C_i$.
+		\item $u - s_1 - \dots - s_n \rightarrow x - t_1 - \dots - t_m \rightarrow y$ where $x \neq v$ and $x \in C_i$. \\ 
 			In this case $x \in \mbox{An}(u) \cup \mbox{An}(v)$ but $x \notin \mbox{An}(u)$, thus $x \in \mbox{An}(v)$.
 			Because of $x \in C_i$ and $x \in \mbox{An}(v)$ we know that $x \in S$. Similar to the previous case
 			vertices $u$ and $v$ are c-separated because there is at least one non collider section of route $\rho$ 
 			containing $x$ which is hit by $S$.
 
-		\item $u - s_1 - \dots - s_n \rightarrow x - t_1 - \dots - t_m \leftarrow y$ where $x \neq v$ and $x,y \in C_i$.
+		\item $u - s_1 - \dots - s_n \rightarrow x - t_1 - \dots - t_m \leftarrow y$ where $x \neq v$ and $x,y \in C_i$. \\ 
+			In this case $x \not\in \mbox{An}(u)$ and still route $\rho$ is contained in $\mbox{An}(u) \cup \mbox{An}(v)$
+			therefore $x \in \mbox{An}(v)$ and thus $y \in \mbox{An}(v)$. That implies $x, y \in S$. Similar to previous 
+			cases there is at least one non collider section containing $x$ which is hit by $S$.
+
+		\item $u - s_1 - \dots s_n \rightarrow x - t_1 - \dots - t_m \leftarrow y$ where $x \neq v$, $x \in C_i$ and $y \not\in C_i$. \\ 
+			In this case we assume that $y \in C_j$ where $j \neq i$. Next we assume that $y$ belongs to the separator $K$ 
+			connected  $C_i$ and next node on the path from $C_i$ to $C_j$ on separation tree $\mc{T}(G, \mc{C})$. To resolve this
+			case we divide it into the following cases
+
+			\begin{enumerate}
+				\item In case when $\{u, s_1, \dots, s_n \} \cap S \neq \emptyset$ then non collider section $u - s_1 - \dots - s_n$ is hit by $S$.
+
+				\item In case when $\{u, s_1, \dots, s_n \} \cap S = \emptyset$ and $\{x, t_1, \dots, t_k \} \cap S \neq \emptyset$ then 
+					collider section $x - t_1 - \dots - t_k$ is outside $S$ and therefore route $\rho$ is blocked.
+
+				\item In case when $\{u, s_1, \dots, s_n \} \cap S = \emptyset$ and $\{x, t_1, \dots, t_k \} \cap S \neq \emptyset$ then
+					there is some $t_j \in \{ t_1, \dots, t_k \}$ such that $t_j \neq v$ and $t_j \in C_i \cap \mbox{An}(v)$. 
+				 	Since $\{ u, s_1, \dots, s_n \} \cap S = \emptyset$ and $\cSep{u}{y}{K}{G}$ there should be no 
+					collider sections in route $(u, s_1, \dots, s_n, x, t_1, \dots, t_m)$, therefore this case can never happen.
+			\end{enumerate}
+
+			Now we consider case when $v \not\in K$. Because of condition $\{ x, t_1, \dots, t_m \} \subset \mbox{An}{v}$ we know that
+			there exists at least one arrow '$\rightarrow$' on sub-route of $\rho$ from $y$ to $v$. Futhermore there is no further arrow '$\leftarrow$' 
+			closer to ther right end $v$ than it is. Therefore this case identical as one of cases $1.$, $5.$ or $6.$ with $u$ replaced by $v$.
+
+		\item $u - s_1 - \dots - s_m - v$, $u - s_1 \dots - s_m \rightarrow v$ or $u - s_1 - \dots - s_m \leftarrow v$
+			We know that $s_1 \neq v$ and $s_m \neq u$ because vertices $u$ and $v$ are not adjacent. Suppose that 
+			$\{ s_1, \dots, s_m \} \cap S = \emptyset$. That implies, based on definition of set $S$, $\{ s_1, \dots, s_m \} \cap C \subset \{u, v\}$.
+			In case when $\{ s_1, \dots, s_m \} \cap S \subset \{ u \}$ then we have non collider section of route $\rho$ which is hit by $S$ and therefore
+			it is blocked by $S$. We know that $s_1 \neq u$ and in case when $\{ s_1, \dots, s_m \} \cap C \subset \{ v \}$ then we have $s_1 \not\in C$.
+			Suppose that $s_1 \in C_j$ where $C_j$ is a node tree in separation tree $\mc{T}(G, \mc{C})$ which is different from node tree $C_i$ and further
+			suppose that $K$ is a separator on the path between $C_i$ and $C_j$. In this set up $u \in K$, $v \not\in K$ and $\cSep{s_1}{v}{K}{G}$.
+			However since $\{ s_1, \dots, s_m \} \cap C \subset \{ v \}$ we have $\{ s_1, \dots, s_m \} \cap K = \emptyset$ which is not possible. 
+			Therefore we have $\{ s_1, \dots, s_m \} \cap S \neq \emptyset$ and route $\rho$ is blocked.
+
+		\item $u - s_1 - \dots - s_m \rightarrow x$ or $u - s_1 - \dots - s_m \leftarrow x$ where $x \not\in C_i$
+			Some Proof.
 
 	\end{enumerate}
 	
