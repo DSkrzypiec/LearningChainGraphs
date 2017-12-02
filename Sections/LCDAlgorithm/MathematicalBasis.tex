@@ -41,9 +41,14 @@ Based on the theorem \ref{LCDSkeletonThm} skeleton recovery phase of LCD algorit
 	Now we assume that there is some set $S \subset V$ which c-separates vertices $u$ and $v$ in graph $G$.
 	We can also assume that vertices $u$ and $v$ are contained in the same node of separation tree. Otherwise
 	using lemma \ref{lemma9} condition $(1)$ is satisfied. When $u$ and $v$ are contained in the same node $C \in \mc{C}$ we
-	have to consider two cases. The first case is when vertices $u$ and $v$ are contained in the same separator connected to 
-	node $C$. The second case is otherwise. The first case is proven by using lemma \ref{lemma11}.
-	\textbf{TODO:} prove the second case.
+	have to consider two cases. The first case is when vertices $u$ and $v$ are not contained in the same separator connected to 
+	node $C$. The second case is otherwise. The first case is proven by lemma \ref{lemma11}.
+	It is know that in chain graph $G$ for any two distinct vertices $u$ and $v$ we have
+	\begin{equation}
+		\cSep{u}{v}{\mbox{bd}_{G}(u) \cup \mbox{bd}_{G}(v)}{G}
+	\end{equation}
+	Therefore in the second case we have $\mbox{bd}_{G}(u) \subset \bigcup_{u \in C} C$ and $\mbox{bd}_{G}(v) \subset \bigcup_{v \in C} C$. That
+	implies at least one of conditions $2$ and $3$ holds.
 	\QED
 \end{prf}
 

@@ -88,7 +88,10 @@ is blocked by this separator. This lemma will be used in the proof of theorem \r
 
 
 
-\textbf{TODO:} Add smoe description of the following lemma.
+The following lemma \ref{lemma11} states that there exists some set $S$ which c-separates some non adjacent vertices $u$ and $v$
+when both of vertices $u$ and $v$ are not contained in the separator connected to their node. 
+This lemma will be used in the proof of theorem \ref{LCDSkeletonThm}.
+
 
 \begin{lemma} \label{lemma11}
 	Let $G = (V, E)$ be a chain graph and $\mc{T}(G, \mc{C})$ be a separation tree for $\mc{C} = \{C_1, \dots, C_k \}$. 
@@ -137,7 +140,7 @@ is blocked by this separator. This lemma will be used in the proof of theorem \r
 
 				\item In case when $\{u, s_1, \dots, s_n \} \cap S = \emptyset$ and $\{x, t_1, \dots, t_k \} \cap S \neq \emptyset$ then
 					there is some $t_j \in \{ t_1, \dots, t_k \}$ such that $t_j \neq v$ and $t_j \in C_i \cap \mbox{An}(v)$. 
-				 	Since $\{ u, s_1, \dots, s_n \} \cap S = \emptyset$ and $\cSep{u}{y}{K}{G}$ there should be no 
+				 	Since $\{ u, s_1, \dots, s_n \} \cap S = \emptyset$ and $u \bigCI y \mid K$ there should be no 
 					collider sections in route $(u, s_1, \dots, s_n, x, t_1, \dots, t_m)$, therefore this case can never happen.
 			\end{enumerate}
 
@@ -145,18 +148,44 @@ is blocked by this separator. This lemma will be used in the proof of theorem \r
 			there exists at least one arrow '$\rightarrow$' on sub-route of $\rho$ from $y$ to $v$. Futhermore there is no further arrow '$\leftarrow$' 
 			closer to ther right end $v$ than it is. Therefore this case identical as one of cases $1.$, $5.$ or $6.$ with $u$ replaced by $v$.
 
-		\item $u - s_1 - \dots - s_m - v$, $u - s_1 \dots - s_m \rightarrow v$ or $u - s_1 - \dots - s_m \leftarrow v$
+		\item $u - s_1 - \dots - s_m - v$, $u - s_1 \dots - s_m \rightarrow v$ or $u - s_1 - \dots - s_m \leftarrow v$. \\ 
 			We know that $s_1 \neq v$ and $s_m \neq u$ because vertices $u$ and $v$ are not adjacent. Suppose that 
 			$\{ s_1, \dots, s_m \} \cap S = \emptyset$. That implies, based on definition of set $S$, $\{ s_1, \dots, s_m \} \cap C \subset \{u, v\}$.
 			In case when $\{ s_1, \dots, s_m \} \cap S \subset \{ u \}$ then we have non collider section of route $\rho$ which is hit by $S$ and therefore
 			it is blocked by $S$. We know that $s_1 \neq u$ and in case when $\{ s_1, \dots, s_m \} \cap C \subset \{ v \}$ then we have $s_1 \not\in C$.
 			Suppose that $s_1 \in C_j$ where $C_j$ is a node tree in separation tree $\mc{T}(G, \mc{C})$ which is different from node tree $C_i$ and further
-			suppose that $K$ is a separator on the path between $C_i$ and $C_j$. In this set up $u \in K$, $v \not\in K$ and $\cSep{s_1}{v}{K}{G}$.
+			suppose that $K$ is a separator connected to node $C_i$ on the path between $C_i$ and $C_j$. In this set up $u \in K$, $v \not\in K$ and 
+			$s_1 \bigCI v \mid K$.
 			However since $\{ s_1, \dots, s_m \} \cap C \subset \{ v \}$ we have $\{ s_1, \dots, s_m \} \cap K = \emptyset$ which is not possible. 
 			Therefore we have $\{ s_1, \dots, s_m \} \cap S \neq \emptyset$ and route $\rho$ is blocked.
 
-		\item $u - s_1 - \dots - s_m \rightarrow x$ or $u - s_1 - \dots - s_m \leftarrow x$ where $x \not\in C_i$
-			Some Proof.
+		\item $u - s_1 - \dots - s_m \rightarrow x$ or $u - s_1 - \dots - s_m \leftarrow x$ where $x \not\in C_i$. \\
+			We consider the first case $u - s_1 - \dots - s_m \rightarrow x$. If $\{ u, s_1, \dots, s_m \} \cap S \neq \emptyset$ then 
+			route $\rho$ is blocked by $S$ because there is a non collider section of $\rho$ which is hit by $S$. In the opposite case 
+			($ \{ u, s_1, \dots, s_m \} \cap S = \emptyset$) suppose that $x \in C_j$ where $C_j$ is a node tree in separation tree $\mc{T}(G, \mc{C})$ 
+			which is different from node tree $C_i$ and further suppose that $K$ is a separator connected to node $C_i$ on the path between $C_i$ and $C_j$.
+			Now we consider the following two cases.
+
+			\begin{enumerate}
+				\item We assume that $v \in K$. This assumption implies $u \not\in K$ and $\{ u, s_1, \dots, s_m \} \cap K \subset \{ v \}$.
+					If $\{ u, s_1, \dots, s_m \} \cap K = \{ v \}$ then this case is reduced to the case $5.$. 
+					If $\{ u, s_1, \dots, s_m \} \cap K = \emptyset$ then $u \not \bigCI x \mid K$ and that is contradictory to the
+					definition of separation tree.
+
+					
+				\item We assume that $v \not\in K$. Using similar deduction as in the previous case we have $u \in K$. 
+					Since any non collider section of sub-route of route $\rho$ is also non collider section of 
+					route $\rho$ we consider sub-route of route $\rho$ starting in $x$. Let $W$ denote set of vertices
+					of the sub-route excluding the two end vertices. We know that $W \cap K \subset S \cup \{ u, v \}$.
+					In case when $W \cap K \subset S$, by lemma \ref{lemma9}, route $\rho$ is blocked by $S$.
+					In case when non collider section of sub-route is hit by $u$ or $v$ we can consider modified sub-route
+					starting at that point. Applying the same approach using lemma \ref{lemma9} to the new sub-route 
+					we have that $\rho$ is blocked by $S$.
+
+			\end{enumerate}
+			Exactly the same approach is used to the other condition in case 6.
+			We have considered all the possible cases. Now proof is complete.
+			\QED
 
 	\end{enumerate}
 	
