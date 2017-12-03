@@ -26,13 +26,22 @@ recovery algorithm are less computational complex then the first step. Therefore
 is determined by complexity of the first step which can be estimated as follow
 
 
-\begin{equation}
+\begin{equation} \label{eq:skeletonRecoveryCost}
 \begin{split}
 	T(\mc{T}) & = \mc{O} \left( \sum_{C_i \in H} \frac{1}{2} c_i (c_i + 1) 2^{c_i} \right)  \le  \\
 	&  \le \mc{O} \left( \sum_{C_i \in H} \frac{1}{2}m(m+1)2^{m} \right) =  \\
 	& = \mc{O} \left( km^2 2^m \right)
 \end{split}
 \end{equation}
+
+In the complex recovery phase we have double loop and verifying conditional independence condition.
+The first loop is over pairs of vertices $\{ u, v \}$ which are connected, therefore number of iteration
+can be bounded by $\mc{O}(m)$. In the second loop for each pair $\{ u, v \}$ there is at most $n$ vertices to check.
+Thus computational cost for double loop in the complex recovery algorithm is $\mc{O}(nm)$.
+Verifying conditional independence condition in line $5$ of algorithm \ref{complexRecoveryAlg} for
+set vertices $u, v$ and $w$ takes $\mc{O}(1)$. The computational complexity of this phase of LCD algorithm
+is far more less than the complexity of the skeleton recovery. Therefore computational cost of the LCD algorithm
+is dominated by computational cost of the first phase of the algorithm which can be bounded as in inequality \ref{eq:skeletonRecoveryCost}.
 
 
 
