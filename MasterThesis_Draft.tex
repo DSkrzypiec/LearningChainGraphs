@@ -18,7 +18,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{listings}
-
+\usepackage{hyperref}
 
 % ----------------------
 % For Geogebra
@@ -162,7 +162,7 @@
 \chapter{Implementation}
 	\input{Sections/Implementation/ImplementOverview}
 
-	\section{Package Functionality}
+	\section{Package Functionality} \label{subsec:PackageFunc}
 		\input{Sections/Implementation/PackageFunc}
 
 	\section{Package Installation} \label{subsec:PackageInstall}
@@ -171,8 +171,11 @@
 	% \section{Technicals} - optional
 	
 \chapter{Results}
+	\input{Sections/Results/Result.tex}
 
 \chapter{Summary}
+	\input{Sections/Summary/Summary.tex}
+
 
 %\chapter{CKES Algorithm}
 %
@@ -203,6 +206,7 @@
 
 	\bibitem{OCG} M. Studeny and R.R. Bouckaert, \textit{On chain graph models for description of conditional independence structures}, Annals Of Statistics 26 (1998) 1434-1495
 	
+	\bibitem{GIT} GitHub repository containing source code of \textit{cglearn} package, \url{https://github.com/DSkrzypiec/cglearn} (03.12.2017)
 \end{thebibliography}
 
 \end{document}

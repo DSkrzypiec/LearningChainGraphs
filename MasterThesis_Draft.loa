@@ -1,4 +1,4 @@
 \def \figurename {Algorithm}
-\contentsline {algorithm}{\numberline {1}{\ignorespaces (LCD) Separation Tree Construction with Labeled Block Ordering}}{20}
-\contentsline {algorithm}{\numberline {2}{\ignorespaces (LCD) Skeleton Recovery}}{26}
-\contentsline {algorithm}{\numberline {3}{\ignorespaces (LCD) Complex Recovery}}{28}
+\contentsline {algorithm}{\numberline {1}{\ignorespaces (LCD) Separation Tree Construction with Labeled Block Ordering}}{20}{algorithm.1}
+\contentsline {algorithm}{\numberline {2}{\ignorespaces (LCD) Skeleton Recovery}}{26}{algorithm.2}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces (LCD) Complex Recovery}}{28}{algorithm.3}

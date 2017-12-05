@@ -13,12 +13,13 @@ R is broadly used, both in academia and in business, open-source statistical pro
 It is also analogy to the R package \textit{bnlearn} for learning bayesian networks.
 The \textit{cglearn} package could be installed through Github and soon will be available on CRAN. Details about package installation are in subsection \ref{subsec:PackageInstall}.
 
-The package provides functionality for learning chain graphs structure within LCD algorithm, visualization results and performe conditional independence analysis for given 
+The package provides functionality for learning chain graphs structure within LCD algorithm and performe conditional independence analysis for given 
 data set. The functionality is further described in subsection \ref{subsec:PackageFunc}.
 
-It is worth to mention that current implementation of LCD algorithm provides functionality of learning chain graphs only for categorical random variables.
+It is worth to mention that current implementation of LCD algorithm provides functionality of learning chain graphs only for numeric categorical random variables.
 The major part of package was implemented in C++ and injected in R using Rcpp package. It was done in purpose of maximizing performance of algorithm. 
-In the forseeable future we are planning to add feature of easily building separation trees and extend LCD algorithm for gaussian random variables.
+The main part of LCD algorithm implementation took over two thousands lines of code. The source code can be found on GitHub repository at \cite{GIT}.
+
 
 
 

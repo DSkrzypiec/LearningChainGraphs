@@ -1,0 +1,85 @@
+% ----------------------------------------------
+%
+%	Damian Skrzypiec
+% 	04.12.2017	
+% 	This script constains results of cglearn package.	
+%
+% ----------------------------------------------
+
+
+In this section we present example of usage \textit{cglearn} package.
+Listing \ref{exampleRCode} contains R code defining data set (\textit{data.frame} in R) and executing
+LCD algorithm implemented in \textit{cglearn} package. In the first part of listing \ref{exampleRCode} (lines 1-8)
+we define a mock data set. This approach guarantees easiness of the reproduction of result and furthermore 
+in this way we can confront our perception of conditional structure of defined data set with outcome of LCD algorithm.
+In lines 10-12 of listing we use function from \textit{cglearn} package to execute LCD algorithm for earlier defined
+data set, separation tree build only from one node which contains all of the variables and p-value threshold value set to $0.10$.
+
+
+\begin{lstlisting}[caption={Example usage of \textit{cglearn} package.}, label={exampleRCode}]
+	set.seed(seed = 299938)		
+	mockDataFrame <- data.frame(
+		A = c(rep(1, 100), rep(0, 100)),
+		B = c(rep(1, 80), rep(0, 120)),
+		C = c(rep(1, 140), rep(0, 60)),
+		D = c(rep(1, 180), rep(0, 20)),
+		E = sample(x = c(0, 1), size = 200, replace = TRUE)
+	)
+
+	resultIndMatrix <- cglearn::cglearnLCD(data = mockDataFrame,
+					       			separationTree = list(1:5),
+					       			pValueThr = 0.10)
+	resultIndMatrix
+\end{lstlisting}
+
+Listing \ref{exampleRResult} presents raw output in R console after execution of listing \ref{exampleRCode}.
+The output shows incidence matrix of chain graph obtained by LCD algorithm. Values in the matrix have the following meaning.
+
+\begin{itemize}
+	\item Value $2$ represents undirected edge
+	\item Value $1$ represents directed edge
+	\item Value $0$ represents absence of edge between vertices
+\end{itemize}
+
+
+The outcome of applying LCD algorithm to obtained chain graph seems to be consistent with common sense of dependence structure of 
+data set defined in the listing \ref{exampleRCode}.
+Chain graph obtained by execution of listing \ref{exampleRCode} is visualized in figure \ref{fig:exampleChainGraph}.
+
+\pagebreak
+
+\begin{lstlisting}[caption={Result of execution listing \ref{exampleRCode}}, label={exampleRResult}]
+	  A B C D E
+	A 2 2 1 0 0
+	B 2 2 0 0 0
+	C 0 0 2 2 0
+	D 0 0 2 2 0
+	E 0 0 0 0 2
+\end{lstlisting}
+
+\begin{figure}
+	\centering
+	\vspace{-10pt}
+	\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2.5cm,
+			    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+		% Nodes
+		\node[main node] (A) at (0, 3) {A};
+		\node[main node] (C) at (3, 3) {C};
+		\node[main node] (B) at (0, 0) {B};
+		\node[main node] (D) at (3, 0) {D};
+		\node[main node] (E) at (1.5, -2) {E};
+
+		% Edges
+		 \draw[->] (A) -- (C);
+		 \draw     (B) -- (A);
+		 \draw     (C) -- (D);
+
+	\end{tikzpicture}
+		
+	\caption{Visualization of result chain graph from listing \ref{exampleRCode}}			
+	\label{fig:exampleChainGraph} 
+\end{figure}
+
+
+

@@ -8,7 +8,40 @@
 % ----------------------------------------------
 
 
-Here will be short description of \textit{cglearn} package functionality.
+In this section we describe the most important functionalities of \textit{cglearn} package.
+In the following subsections we will give short description of the package's function, definition
+of arguments and the result. At the end of this section we suggest possible further improvements of 
+the \textit{cglearn} package.
+
+
+\subsection{cglearnLCD}
+The function \textit{cglearnLCD} is the main function of the package. It performes LCD algorithm for the 
+following given arguments.
+
+\begin{itemize}
+	\item \textbf{data} - \textit{data.frame} object with categorical numeric variables.
+
+	\item \textbf{separationTree} - \textit{list} of vectors column ids which defines separation tree based on given data.
+
+	\item \textbf{pValueThr} - \textit{numeric} number from interval $(0, 1)$ which represents p-value threshold to determine conditional independence.
+\end{itemize}
+
+The \textit{cglearnLCD} function returns a \textit{data.frame} object which represents incidence matrix of chaing graph obtained by LCD algorithm.
+ 
+
+\subsection{calcCondIndepend}
+The function \textit{calcCondIndepend} performs statistical test for conditional independence $x \bigCI y \mid Z$. Required arguments
+are listed below.
+
+\begin{itemize}
+	\item \textbf{x} - \textit{numeric} categorical vector.
+
+	\item \textbf{y} - \textit{numeric} categorical vector.
+
+	\item \textbf{listOfNumVect} - \textit{list} of categorical numeric vectors.
+\end{itemize}
+
+The \textit{calcCondIndepend} function returns a S3 object which contains value of statistic, number of degrees of freedom and p-value of the test.
 
 
 

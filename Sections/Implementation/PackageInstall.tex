@@ -9,7 +9,7 @@
 
 \lstset{ %
   language=R,                     % the language of the code
-  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+  basicstyle=\ttfamily\footnotesize,       % the size of the fonts that are used for the code
   numbers=left,                   % where to put the line-numbers
   numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
   stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
@@ -35,9 +35,10 @@
 } 
 
 The source code of the implementation of \textit{cglearn} package is placed on GitHub. 
-Any R package which is located in GitHub can be installed by using function \textit{install_github} from package \textit{devtools}.
+Any R package which is located in GitHub can be installed by using function \textit{install\textunderscore github} from package \textit{devtools}.
+The following listing contains R code for installing \textit{cglearn} package.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={R code for installing \textit{cglearn} package.}]
 	if (!require(devtools)) {
 		install.packages("devtools")
 	}	
@@ -47,5 +48,7 @@ Any R package which is located in GitHub can be installed by using function \tex
 \end{lstlisting}
 
 
-
+The only dependency of \textit{cglearn} package is package \textit{Rcpp} which binds R and C++ language.
+The Rcpp package is very common in the world of R packages. Thus such a dependency is not very restrictive. 
+Such a short list of dependent packages makes \textit{cglearn} package easy to install, reliable and stable in further development.
 
